@@ -1,0 +1,1705 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Bambú Sistemas</title>
+<meta name="description" content="Diseñamos, instalamos y gestionamos sistemas de gestión y páginas web a medida para negocios de cualquier rubro. Pedí una demo, un relevamiento o una llamada.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bambú Sistemas">
+<meta property="og:description" content="Sistemas de gestión y páginas web a medida para cualquier tipo de negocio. Pedí tu demo.">
+<meta property="og:image" content="https://moralan9.github.io/bambu-sistemas/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400..600&display=swap">
+<style>
+/* Concepto: una sala oscura y verde con un objeto 3D en el hero; cada sistema se despliega al scrollear.
+   Verde bambú para la identidad, ámbar solo para las acciones (pedir demo). */
+:root{
+  --ink:#0c1311;        /* fondo: negro verdoso */
+  --ink-2:#121b17;      /* superficies */
+  --ink-3:#19241f;      /* superficies elevadas */
+  --bone:#f1eee5;       /* texto principal */
+  --mute:#9db0a6;       /* texto secundario, gris verdoso */
+  --line:rgba(241,238,229,.13);
+  --bamboo:#7fbf8a;     /* identidad */
+  --leaf:#b6e2b9;       /* hoja, detalles claros */
+  --sol:#f4b942;        /* acción: botones y llamados */
+  --f-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(16px,4vw,56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sol);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:700;line-height:1.02;letter-spacing:-.025em;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{width:100%;max-width:1360px;margin-inline:auto;padding-inline:var(--gutter)}
+.mark{width:34px;height:34px;display:block;flex:none}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gutter) 12px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(to bottom,rgba(12,19,17,.88),rgba(12,19,17,0));backdrop-filter:blur(6px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:var(--f-display);font-size:1.55rem;font-weight:800;letter-spacing:-.04em;line-height:1}
+.brand small{display:block;font-size:.62rem;letter-spacing:.22em;color:var(--mute);text-transform:uppercase;margin-top:2px;font-weight:500}
+.nav ul{display:flex;gap:clamp(14px,2.4vw,34px);list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--mute);transition:color .2s}
+.nav ul a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 .98rem var(--f-body);padding:.85em 1.5em;border-radius:999px;text-decoration:none;border:1px solid var(--line);color:var(--bone);background:transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{border-color:var(--bone);transform:translateY(-1px)}
+.btn.primary{background:var(--sol);border-color:var(--sol);color:#1a1405}
+.btn.primary:hover{background:#ffcb5e;border-color:#ffcb5e}
+.btn.sm{padding:.6em 1.15em;font-size:.9rem}
+@media(max-width:860px){.nav ul{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;height:clamp(660px,94svh,940px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+#gl{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero-fallback{position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 60% at 70% 40%,rgba(127,191,138,.2),transparent 70%)}
+.hero .wrap{padding-bottom:clamp(28px,6vh,64px);pointer-events:none}
+.hero .wrap *{pointer-events:auto}
+.hero h1{font-size:clamp(2.9rem,8vw,7.6rem);font-weight:760;font-stretch:88%;letter-spacing:-.045em;line-height:.93;max-width:11ch}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:block;transform:translateY(105%);animation:rise 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.ln:nth-child(2)>span{animation-delay:.12s}
+.ln:nth-child(3)>span{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.hero-lead{margin-top:clamp(18px,3vh,30px);max-width:50ch;color:var(--mute);font-size:clamp(1.02rem,1.5vw,1.22rem)}
+.hero-lead strong{color:var(--bone);font-weight:600}
+.hero-cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-pts{margin:clamp(26px,5vh,48px) 0 0;padding:20px 0 0;list-style:none;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px clamp(20px,3.5vw,48px)}
+.hero-pts li{display:flex;align-items:center;gap:10px;font-size:.95rem;color:var(--bone)}
+.hero-pts li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--bamboo);flex:none}
+@media(max-width:760px){.hero{height:auto;min-height:94svh}.hero .wrap{padding-top:46svh}}
+
+/* ---------- Manifiesto ---------- */
+.statement{padding-block:clamp(80px,16vh,200px)}
+.statement p{font:600 clamp(1.8rem,4.6vw,4rem)/1.12 var(--f-display);letter-spacing:-.03em;max-width:24ch;text-wrap:pretty}
+.statement .w{opacity:.2}
+.statement small{display:block;margin-top:28px;max-width:56ch;color:var(--mute);font-size:1.08rem}
+
+/* ---------- Encabezados de sección ---------- */
+.sec-head{padding-block:clamp(48px,10vh,120px) clamp(24px,5vh,56px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 56px;align-items:end}
+.sec-head h2{font-size:clamp(2.2rem,5.4vw,5rem);font-stretch:90%}
+.sec-head p{color:var(--mute);max-width:46ch}
+@media(max-width:900px){.sec-head{grid-template-columns:1fr}}
+
+/* ---------- Problemas -> soluciones ---------- */
+.pains{padding-bottom:clamp(40px,8vh,100px)}
+.pain{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:12px 56px;padding-block:clamp(20px,3.4vh,34px);border-top:1px solid var(--line);align-items:baseline}
+.pain h3{font-size:clamp(1.4rem,2.8vw,2.3rem);font-stretch:92%;letter-spacing:-.03em}
+.pain p{color:var(--mute);max-width:44ch}
+.pain p b{color:var(--bamboo);font-weight:600}
+@media(max-width:760px){.pain{grid-template-columns:1fr}}
+
+/* ---------- Sistemas ---------- */
+.sys{position:relative;border-top:1px solid var(--line)}
+.sys-pin{position:relative;min-height:100svh;padding:calc(88px + env(safe-area-inset-top,0px)) var(--gutter) 40px;max-width:1360px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,72px);align-items:center}
+.sys-copy{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sys-status{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;font-size:.84rem;color:var(--bamboo);border:1px solid rgba(127,191,138,.4);padding:.3em .9em;border-radius:999px}
+.sys-status i{width:6px;height:6px;border-radius:50%;background:var(--bamboo);box-shadow:0 0 0 4px rgba(127,191,138,.2)}
+.sys h3{font-size:clamp(2.4rem,4.8vw,4.4rem);font-weight:780;font-stretch:88%;letter-spacing:-.04em}
+.sys-for{font-size:.95rem;color:var(--mute)}
+.sys-tag{font:500 clamp(1.05rem,1.5vw,1.3rem)/1.3 var(--f-display);color:var(--bone);letter-spacing:-.01em}
+.sys-story{display:flex;flex-direction:column;gap:8px;color:var(--mute);font-size:.98rem;max-width:50ch}
+.sys-story b{color:var(--bone);font-weight:600}
+.mods{list-style:none;margin:6px 0 0;padding:0 0 0 22px;position:relative;display:flex;flex-direction:column;gap:2px}
+.mods::before,.mods::after{content:"";position:absolute;left:0;top:6px;width:2px;border-radius:2px}
+.mods::before{bottom:6px;background:var(--line)}
+.mods::after{height:calc((100% - 12px) * var(--p,0));background:var(--bamboo);transition:height .5s cubic-bezier(.2,.8,.2,1)}
+.mods li{padding:6px 0}
+.mods button{all:unset;cursor:pointer;display:block;width:100%;font:600 1.08rem var(--f-display);letter-spacing:-.01em;color:var(--mute);transition:color .25s}
+.mods li.on button,.mods button:hover{color:var(--bone)}
+.mods button:focus-visible{outline:2px solid var(--sol);outline-offset:4px;border-radius:4px}
+.mods .d{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+.mods li.on .d{grid-template-rows:1fr}
+.mods .d>div{overflow:hidden}
+.mods .d p{padding-top:4px;color:var(--mute);font-size:.96rem;max-width:48ch}
+.perks{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.perks li{font-size:.85rem;padding:.3em .8em;border-radius:999px;background:var(--ink-3);color:var(--leaf)}
+.sys-cta{margin-top:6px;display:flex;flex-wrap:wrap;gap:10px}
+
+.sys-stage{position:relative;perspective:1700px;min-width:0;display:flex;align-items:center;justify-content:center}
+.glow{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(127,191,138,.22),rgba(244,185,66,.05) 55%,transparent 72%);filter:blur(10px);pointer-events:none}
+.tilt{width:100%;transform-style:preserve-3d;will-change:transform}
+.device{position:relative;width:100%;transform-style:preserve-3d;border-radius:14px;background:var(--ink-2);border:1px solid var(--line);box-shadow:0 60px 120px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset}
+.device .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--ink-3);border-radius:14px 14px 0 0}
+.device .bar i{width:10px;height:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
+.device .url{margin-left:10px;font-size:.78rem;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.screens{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;border-radius:0 0 14px 14px;background:var(--ink)}
+.shot{position:absolute;inset:0;margin:0;background:var(--ink)}
+.shot>img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.shot figcaption{display:none}
+.floats{position:absolute;inset:0;pointer-events:none;transform-style:preserve-3d}
+.float{position:absolute;font:500 .86rem var(--f-body);padding:.6em 1em;border-radius:12px;background:rgba(25,36,31,.86);border:1px solid var(--line);backdrop-filter:blur(8px);color:var(--bone);box-shadow:0 20px 40px -12px rgba(0,0,0,.6)}
+.float:nth-child(1){left:0;top:12%}
+.float:nth-child(2){right:0;top:46%}
+.float:nth-child(3){left:6%;bottom:4%}
+
+/* Marcador de captura */
+.ph{position:absolute;inset:0;display:grid;grid-template-columns:15% 1fr;background:linear-gradient(135deg,#16211c,#0f1714)}
+.ph .side{border-right:1px solid var(--line);padding:5% 8%;display:flex;flex-direction:column;gap:9px}
+.ph .side i{height:7px;border-radius:4px;background:var(--ink-3)}
+.ph .side i:first-child{background:var(--bamboo);opacity:.85;width:60%}
+.ph .main{padding:4% 5%;display:flex;flex-direction:column;gap:3.5%;min-width:0}
+.ph .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:3%}
+.ph .kpis i{height:clamp(30px,6vw,64px);border-radius:8px;background:var(--ink-3)}
+.ph .chart{flex:1;border-radius:10px;background:repeating-linear-gradient(to right,transparent 0 7%,rgba(127,191,138,.3) 7% 11%) bottom/100% 55% no-repeat,var(--ink-3)}
+.ph.v1 .chart{background:repeating-linear-gradient(to right,transparent 0 6%,rgba(244,185,66,.32) 6% 9%) bottom/100% 38% no-repeat,var(--ink-3)}
+.ph.v2 .kpis{grid-template-columns:2fr 1fr}
+.ph.v3 .main{flex-direction:row}
+.ph.v3 .kpis{grid-template-columns:1fr;flex:1}
+.ph.v3 .kpis i{height:100%}
+.ph .lbl{position:absolute;left:0;right:0;bottom:0;padding:5% 6%;background:linear-gradient(transparent,rgba(12,19,17,.92));font:600 clamp(.95rem,1.7vw,1.4rem) var(--f-display);letter-spacing:-.02em}
+.ph .lbl small{display:block;font:400 .7rem var(--f-body);color:var(--mute);letter-spacing:0}
+
+@media(min-width:901px) and (max-height:820px){
+  .sys-pin{padding-top:calc(76px + env(safe-area-inset-top,0px));padding-bottom:20px}
+  .sys-copy{gap:10px}
+  .sys h3{font-size:clamp(2.2rem,4vw,3.4rem)}
+  .sys-story{font-size:.9rem;gap:6px}
+  .mods li{padding:4px 0}
+  .mods .d p{font-size:.9rem}
+}
+@media(min-width:901px) and (max-height:700px){.perks,.sys-story p:first-child{display:none}}
+@media(max-width:900px),(prefers-reduced-motion:reduce){
+  .sys-pin{grid-template-columns:1fr;min-height:0;padding-top:72px}
+  .mods::after{display:none}
+  .mods .d{grid-template-rows:1fr}
+  .mods button{cursor:default}
+  .floats{display:none}
+  .screens{aspect-ratio:auto;overflow:visible;display:flex;flex-direction:column;gap:22px;background:none;border-radius:0}
+  .shot{position:relative;inset:auto}
+  .shot>img,.shot .ph{border-radius:10px;border:1px solid var(--line)}
+  .shot .ph{position:relative;aspect-ratio:16/10}
+  .shot figcaption{display:block;margin-top:8px;font-size:.88rem;color:var(--mute)}
+  .device .bar{display:none}
+  .device{background:none;border:0;box-shadow:none}
+  .glow{display:none}
+}
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){
+  .shot:not(:first-child){clip-path:inset(0 100% 0 0)}
+}
+
+/* ---------- Modalidades ---------- */
+.modes{padding-bottom:clamp(40px,8vh,100px)}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.mode-tabs button{font:600 1.05rem var(--f-display);padding:.7em 1.4em;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mute);cursor:pointer;transition:all .25s}
+.mode-tabs button[aria-selected="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.mode-panel{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:32px 64px;align-items:center}
+.mode-panel[hidden]{display:none}
+.mode-panel h3{font-size:clamp(1.8rem,3.4vw,3rem);font-stretch:92%;margin-bottom:10px}
+.mode-panel>div>p{color:var(--mute);max-width:46ch;margin-bottom:18px}
+.mode-panel ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.mode-panel li{display:flex;gap:12px;align-items:flex-start}
+.mode-panel li::before{content:"";flex:none;width:8px;height:8px;margin-top:.6em;border-radius:50%;background:var(--bamboo)}
+.mode-art{background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:clamp(16px,3vw,32px)}
+.mode-art svg{width:100%;height:auto;display:block}
+.ic{fill:var(--ink-3);stroke:var(--bamboo);stroke-width:2}
+.ic-fill{fill:var(--bamboo)}
+.cap{font:500 15px var(--f-body);fill:var(--bone)}
+.link{stroke:var(--sol);stroke-width:2.5;stroke-dasharray:3 8;stroke-linecap:round;fill:none;animation:flow 1.1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-22}}
+.mode-note{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);color:var(--mute);max-width:70ch}
+.mode-note b{color:var(--bone);font-weight:600}
+@media(max-width:900px){.mode-panel{grid-template-columns:1fr}}
+
+/* ---------- Proceso ---------- */
+.proceso{padding-bottom:clamp(40px,8vh,100px)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));counter-reset:s}
+.steps li{padding:26px 22px 30px 0;border-top:1px solid var(--line);counter-increment:s}
+.steps li::before{content:counter(s);display:block;font:300 3.4rem/1 var(--f-display);color:var(--sol);letter-spacing:-.04em;margin-bottom:18px}
+.steps h3{font-size:1.35rem;letter-spacing:-.02em;margin-bottom:8px}
+.steps p{color:var(--mute);font-size:.95rem}
+@media(max-width:1100px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+.proceso-cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- Páginas web ---------- */
+.webs{padding-bottom:clamp(40px,8vh,100px)}
+.web-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px);perspective:1500px;margin-top:8px}
+.web-card{margin:0;min-width:0}
+.web-card .device{transform-origin:50% 100%}
+.web-card figcaption{margin-top:14px;color:var(--mute);font-size:.95rem}
+.web-card figcaption b{display:block;color:var(--bone);font:600 1.15rem var(--f-display);letter-spacing:-.015em}
+.web-card .screens{aspect-ratio:4/3}
+.web-card .shot{clip-path:none!important}
+.web-card .shot .ph{position:absolute}
+.web-points{margin:36px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px 14px}
+.web-points li{padding:.5em 1.1em;border:1px solid var(--line);border-radius:999px;font-size:.95rem}
+@media(max-width:900px){.web-row{grid-template-columns:1fr}.web-card .screens{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:10px}.web-card .shot{position:absolute}.web-card .device{border:1px solid var(--line)}}
+
+/* ---------- Carta de presentación ---------- */
+.about{padding-block:clamp(48px,9vh,110px);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px clamp(32px,6vw,96px);align-items:start}
+.who{position:sticky;top:96px;display:flex;flex-direction:column;gap:6px}
+.photo{aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);display:grid;place-items:center;position:relative;max-width:380px;width:100%;margin-bottom:14px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.photo .mark{width:42%;height:auto;opacity:.9}
+.who-name{font:700 1.35rem var(--f-display);letter-spacing:-.02em;color:var(--bone)}
+.who-role{color:var(--mute);font-size:.95rem}
+.letter{max-width:64ch}
+.letter h2{font-size:clamp(2rem,4vw,3.4rem);font-stretch:90%;margin-bottom:30px}
+.letter p{color:var(--bone);opacity:.88;font-size:1.12rem;line-height:1.75;margin-bottom:18px}
+.letter .sign{margin-top:34px;opacity:1}
+.letter .sign b{display:block;margin-top:14px;font:700 1.5rem var(--f-display);letter-spacing:-.02em}
+.letter .sign span{color:var(--mute);font-size:.98rem}
+.letter-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:860px){.about{grid-template-columns:1fr}.who{position:static}}
+
+/* ---------- Preguntas ---------- */
+.faq{padding-bottom:clamp(40px,8vh,100px)}
+.faq details{border-top:1px solid var(--line);padding-block:20px}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font:600 clamp(1.15rem,2vw,1.5rem) var(--f-display);letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:300;font-size:1.8rem;line-height:1;color:var(--sol);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:var(--mute);max-width:64ch}
+
+/* ---------- Contacto ---------- */
+.contact{padding-block:clamp(70px,12vh,150px);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px clamp(32px,6vw,96px);align-items:start}
+.contact h2{font-size:clamp(2.4rem,6vw,5.6rem);font-stretch:86%;letter-spacing:-.05em;line-height:.95}
+.contact-grid>div>p{margin-top:22px;color:var(--mute);max-width:42ch}
+.direct{margin-top:26px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.9rem;color:var(--mute)}
+input,select,textarea{font:400 1rem var(--f-body);color:var(--bone);background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:.85em 1em;width:100%;min-width:0}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--sol);outline-offset:1px;border-color:transparent}
+form .btn{grid-column:1/-1;justify-self:start;font-size:1.05rem;padding:1em 1.8em}
+.result{grid-column:1/-1;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:20px}
+.result[hidden]{display:none}
+.result textarea{min-height:140px;margin:10px 0}
+.result .row{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media(max-width:560px){form{grid-template-columns:1fr}}
+footer{padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:var(--mute);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px}
+footer .brand b{font-size:1.2rem;color:var(--bone)}
+footer .mark{width:26px;height:26px}
+
+/* Botón flotante */
+.float-cta{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;box-shadow:0 14px 40px -8px rgba(0,0,0,.7);opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s}
+.float-cta.on{opacity:1;transform:none;pointer-events:auto}
+
+@media(prefers-reduced-motion:reduce){
+  .ln>span{transform:none;animation:none}
+  .statement .w{opacity:1}
+  .link{animation:none}
+}
+
+/* ---------- Pulido: progreso, grano, nombre de fondo, módulos sin captura ---------- */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--bamboo),var(--sol));z-index:80}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.nav ul a.act{color:var(--bone)}
+.sys-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.sys-bgname{position:absolute;left:0;top:50%;translate:0 -50%;font:800 clamp(9rem,24vw,26rem)/.8 var(--f-display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(241,238,229,.07);white-space:nowrap;user-select:none}
+.sys-copy,.sys-stage{position:relative;z-index:1}
+.mods .st{display:block;font:600 1.08rem var(--f-display);letter-spacing:-.01em;color:var(--mute)}
+.mods li.static .d{grid-template-rows:1fr}
+@media(max-width:900px){.sys-bg{display:none}}
+
+/* ---------- Demos interactivas ---------- */
+.probalo{padding-bottom:clamp(40px,8vh,100px)}
+.demo-note{font-size:.88rem;color:var(--mute);margin:-6px 0 16px}
+.demo{background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:clamp(14px,2.6vw,30px)}
+.demo[hidden]{display:none}
+.demo h4{font:700 1.15rem var(--f-display);letter-spacing:-.02em;margin:0 0 12px}
+.d-pos{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px}
+.d-prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;align-content:start}
+.d-prod{background:var(--ink-3);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:left;cursor:pointer;color:var(--bone);font:500 .95rem var(--f-body);transition:transform .15s,border-color .15s}
+.d-prod:hover{border-color:var(--bamboo);transform:translateY(-2px)}
+.d-prod b{display:block;font:700 1.05rem var(--f-display);margin-top:6px;color:var(--leaf)}
+.d-cart{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.d-lines{display:flex;flex-direction:column;gap:6px;min-height:92px;max-height:190px;overflow:auto}
+.d-empty{color:var(--mute);font-size:.92rem;margin:auto 0}
+.d-line{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;font-size:.92rem}
+.d-line .q{display:flex;align-items:center;gap:6px}
+.d-line .q button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--bone);cursor:pointer;font:600 1rem var(--f-body);line-height:1}
+.d-total{display:flex;justify-content:space-between;align-items:baseline;font:800 1.8rem var(--f-display);letter-spacing:-.03em}
+.d-total span{font:500 .9rem var(--f-body);color:var(--mute);letter-spacing:0}
+.d-pay{display:flex;flex-wrap:wrap;gap:6px}
+.d-pill{font:600 .88rem var(--f-body);padding:.5em 1em;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--bone);cursor:pointer}
+.d-pill[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.d-row{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--mute);flex-wrap:wrap}
+.d-row input{width:130px;padding:.55em .8em}
+.d-day3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:.8rem;color:var(--mute);border-top:1px solid var(--line);padding-top:10px}
+.d-day3 b{display:block;color:var(--bone);font:700 1rem var(--f-display);font-variant-numeric:tabular-nums}
+.d-roti{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px}
+.d-form{display:flex;flex-direction:column;gap:12px}
+.d-form .field{gap:4px}
+.d-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.d-col{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:12px;min-height:240px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.d-col h5{font:700 .95rem var(--f-display);margin:0 0 2px;color:var(--bone)}
+.d-col h5 span{color:var(--mute);font-weight:500;font-size:.85rem}
+.d-card{background:var(--ink-3);border-radius:10px;padding:10px;font-size:.88rem;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.d-card small{color:var(--mute);font-size:.8rem}
+.d-card .go{margin-top:4px;font:600 .8rem var(--f-body);padding:.4em .9em;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--bone);cursor:pointer}
+.d-card .go:hover{border-color:var(--sol);color:var(--sol)}
+.d-card.late{outline:1px solid rgba(244,185,66,.6)}
+.d-clock{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.9rem;color:var(--mute);margin-bottom:12px}
+.d-clock b{color:var(--bone);font:700 1.1rem var(--f-display);font-variant-numeric:tabular-nums}
+.d-turnos{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px}
+.d-days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px}
+.d-dayb{flex:none;min-width:64px;padding:.6em .8em;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--bone);cursor:pointer;text-align:center;font:500 .8rem var(--f-body);line-height:1.3}
+.d-dayb b{display:block;font:700 1.1rem var(--f-display)}
+.d-dayb[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.d-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:8px}
+.d-slot{padding:.6em 0;border-radius:10px;border:1px solid var(--line);background:var(--ink-3);color:var(--bone);cursor:pointer;font:600 .9rem var(--f-body);font-variant-numeric:tabular-nums}
+.d-slot:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.d-slot[aria-pressed="true"]{background:var(--sol);color:#1a1405;border-color:var(--sol)}
+.d-ok{background:rgba(127,191,138,.12);border:1px solid rgba(127,191,138,.4);border-radius:14px;padding:16px;margin-top:14px;font-size:.95rem}
+.d-ok b{display:block;font:700 1.05rem var(--f-display);margin-bottom:4px}
+.d-ok q{display:block;margin-top:8px;color:var(--mute);font-size:.88rem;quotes:none}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--bone);color:var(--ink);padding:.75em 1.3em;border-radius:999px;font:600 .95rem var(--f-body);z-index:120;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.d-pos,.d-roti,.d-turnos{grid-template-columns:1fr}.d-board{grid-template-columns:1fr}.d-col{min-height:0}}
+
+/* ---------- Páginas únicas (recorrido con scroll) ---------- */
+.site{position:relative;border-top:1px solid var(--line)}
+.site-pin{min-height:100svh;padding:calc(88px + env(safe-area-inset-top,0px)) var(--gutter) 40px;max-width:1360px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px);align-items:center}
+.site-copy{display:flex;flex-direction:column;gap:14px;min-width:0}
+.site-copy h3{font-size:clamp(2.2rem,4.4vw,4rem);font-weight:780;font-stretch:88%;letter-spacing:-.04em}
+.site-copy p{color:var(--mute);max-width:44ch}
+.site-copy ul{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.site-copy li{display:flex;gap:10px;align-items:flex-start;font-size:.98rem}
+.site-copy li::before{content:"";flex:none;width:8px;height:8px;margin-top:.6em;border-radius:50%;background:var(--bamboo)}
+.site-stage{perspective:1700px;min-width:0}
+.site-frame{border-radius:14px;border:1px solid var(--line);background:var(--ink-2);overflow:hidden;box-shadow:0 60px 120px -30px rgba(0,0,0,.8);transform-origin:50% 100%}
+.site-frame .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--ink-3)}
+.site-frame .bar i{width:10px;height:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
+.site-frame .url{margin-left:10px;font-size:.78rem;color:var(--mute)}
+.site-view{position:relative;aspect-ratio:16/10;overflow:hidden}
+.strip{display:flex;flex-direction:column;will-change:transform}
+.strip .shot{position:relative;inset:auto;aspect-ratio:16/10;clip-path:none!important;flex:none}
+.strip .shot .ph{position:absolute}
+@media(max-width:900px){.site-pin{grid-template-columns:1fr;min-height:0;padding-top:72px}.strip .shot:nth-child(n+3){display:none}}
+
+/* ---------- Videos ---------- */
+.videos{padding-bottom:clamp(40px,8vh,100px)}
+.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.vcard{margin:0;min-width:0}
+.vbox{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--ink-2);border:1px solid var(--line);display:grid;place-items:center}
+.vbox video,.vbox iframe,.vbox>img{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;object-fit:cover}
+.vbox .soon{text-align:center;color:var(--mute);padding:20px;font-size:.95rem;position:relative}
+.vplay{position:relative;width:76px;height:76px;border-radius:50%;border:0;background:var(--sol);color:#1a1405;cursor:pointer;display:grid;place-items:center;box-shadow:0 14px 40px -8px rgba(0,0,0,.7);transition:transform .2s}
+.vplay:hover{transform:scale(1.08)}
+.vplay svg{width:28px;height:28px;margin-left:4px}
+.vcard figcaption{margin-top:14px;color:var(--mute);font-size:.95rem}
+.vcard figcaption b{display:block;color:var(--bone);font:600 1.2rem var(--f-display);letter-spacing:-.015em}
+@media(max-width:760px){.vgrid{grid-template-columns:1fr}}
+
+/* ---------- Probalo: 6 sistemas x 4 módulos ---------- */
+.mod-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:-6px 0 16px}
+.mod-tabs button{font:600 .9rem var(--f-body);padding:.5em 1.05em;border-radius:10px;border:1px solid transparent;background:transparent;color:var(--mute);cursor:pointer;transition:all .2s}
+.mod-tabs button:hover{color:var(--bone)}
+.mod-tabs button[aria-selected="true"]{background:var(--ink-3);color:var(--bone);border-color:var(--line)}
+#demo-sys{margin-bottom:12px}
+.d-hint{font-size:.85rem;color:var(--mute);margin:0 0 12px}
+.d-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.d-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.d-kpi{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.d-kpi span{display:block;font-size:.78rem;color:var(--mute)}
+.d-kpi b{font:700 1.35rem var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.d-kpi b.warn{color:var(--sol)}.d-kpi b.ok{color:var(--leaf)}.d-kpi b.bad{color:#ff8a80}
+.d-bars{display:flex;align-items:flex-end;gap:8px;height:170px;padding-top:18px}
+.d-bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%;min-width:0}
+.d-bar i{display:block;width:100%;background:var(--bamboo);border-radius:6px 6px 0 0;min-height:3px;transition:height .4s cubic-bezier(.2,.8,.2,1)}
+.d-bar.best i{background:var(--sol)}
+.d-bar small{font-size:.7rem;color:var(--mute);white-space:nowrap}
+.d-bar b{font:600 .72rem var(--f-body);color:var(--bone);font-variant-numeric:tabular-nums}
+.d-tbl{width:100%;border-collapse:collapse;font-size:.9rem}
+.d-tbl th{text-align:left;font:600 .78rem var(--f-body);color:var(--mute);padding:8px 10px;border-bottom:1px solid var(--line)}
+.d-tbl td{padding:8px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.d-tbl tr.low td{background:rgba(244,185,66,.07)}
+.d-tbl .num{text-align:right}
+.d-chip{display:inline-block;font:600 .72rem var(--f-body);padding:.2em .7em;border-radius:999px;background:rgba(244,185,66,.16);color:var(--sol)}
+.d-chip.g{background:rgba(127,191,138,.16);color:var(--leaf)}
+.d-chip.r{background:rgba(255,138,128,.16);color:#ff8a80}
+.d-btn{font:600 .85rem var(--f-body);padding:.5em 1.1em;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--bone);cursor:pointer}
+.d-btn:hover{border-color:var(--sol);color:var(--sol)}
+.d-btn.pri{background:var(--sol);border-color:var(--sol);color:#1a1405}.d-btn.pri:hover{background:#ffcb5e;color:#1a1405}
+.d-btn:disabled{opacity:.4;cursor:not-allowed}
+.d-list{display:flex;flex-direction:column;gap:8px}
+.d-item{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.92rem}
+.d-item small{color:var(--mute);display:block}
+.d-form2{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+.d-form2 .field{flex:1;min-width:120px}
+.d-prog{height:10px;border-radius:999px;background:var(--ink-3);overflow:hidden}
+.d-prog i{display:block;height:100%;background:linear-gradient(90deg,var(--bamboo),var(--sol));border-radius:999px;transition:width .4s}
+.plano{position:relative;background:var(--ink);border:1px solid var(--line);border-radius:14px;height:300px;overflow:hidden;background-image:radial-gradient(rgba(241,238,229,.07) 1px,transparent 1px);background-size:22px 22px}
+.mesa{position:absolute;width:76px;height:76px;display:grid;place-items:center;text-align:center;border:2px solid var(--bamboo);color:var(--bone);background:rgba(127,191,138,.08);cursor:pointer;font:700 1.1rem var(--f-display);line-height:1.1;transition:transform .15s,background .2s;border-radius:14px}
+.mesa.r{border-radius:50%}
+.mesa small{display:block;font:500 .68rem var(--f-body);color:var(--mute)}
+.mesa.occ{border-color:#ff8a80;background:rgba(255,138,128,.1)}
+.mesa.sel{outline:2px solid var(--sol);outline-offset:3px}
+.mesa:hover{transform:scale(1.06)}
+.phone{width:min(300px,100%);margin:0 auto;border:8px solid #000;border-radius:34px;background:var(--ink);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);display:flex;flex-direction:column;height:480px}
+.phone header{padding:12px 14px;border-bottom:1px solid var(--line);font:700 1rem var(--f-display);text-align:center}
+.phone .scroll{flex:1;overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.phone h6{margin:6px 0 2px;font:700 .78rem var(--f-body);color:var(--bamboo)}
+.phone .row{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--ink-3);border-radius:10px;padding:8px 10px;font-size:.86rem}
+.phone .row button{width:26px;height:26px;border-radius:50%;border:0;background:var(--sol);color:#1a1405;font-weight:700;cursor:pointer}
+.phone footer{padding:10px;border-top:1px solid var(--line)}
+.qr{display:grid;grid-template-columns:repeat(11,1fr);gap:2px;width:132px;padding:8px;background:var(--bone);border-radius:10px}
+.qr i{aspect-ratio:1;background:transparent}.qr i.k{background:var(--ink)}
+.mx{display:grid;grid-template-columns:auto repeat(5,1fr);gap:4px;font-size:.78rem;max-width:420px}
+.mx div{display:grid;place-items:center;min-height:34px;border-radius:6px;color:var(--mute)}
+.mx .c{color:#10150f;font-weight:700;opacity:.35}.mx .c.on{opacity:1;outline:2px solid var(--bone);outline-offset:1px}
+.risk{display:inline-block;font:700 1.1rem var(--f-display);padding:.3em .9em;border-radius:10px;color:#10150f}
+.map{position:relative;height:340px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#16211c,#0f1714);background-image:linear-gradient(rgba(241,238,229,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(241,238,229,.05) 1px,transparent 1px);background-size:34px 34px}
+.pt{position:absolute;transform:translate(-50%,-50%);cursor:pointer;background:none;border:0;color:var(--bone);padding:0;transition:left 1.6s ease,top 1.6s ease;font:600 .7rem var(--f-body);text-align:center;white-space:nowrap}
+.pt:not(.emp){color:var(--mute);font-weight:500}
+.pt::before{content:"";display:block;width:14px;height:14px;margin:0 auto 3px;border-radius:50%;background:var(--bamboo);box-shadow:0 0 0 4px rgba(127,191,138,.25)}
+.pt.emp::before{border-radius:4px;background:var(--sol);box-shadow:0 0 0 4px rgba(244,185,66,.22)}
+.pt.sel::before{outline:2px solid var(--bone);outline-offset:3px}
+.sw{position:relative;width:44px;height:24px;border-radius:999px;background:var(--ink-3);border:1px solid var(--line);cursor:pointer;transition:background .2s;flex:none}
+.sw::after{content:"";position:absolute;left:2px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--mute);transition:transform .2s,background .2s}
+.sw[aria-pressed="true"]{background:rgba(127,191,138,.3)}.sw[aria-pressed="true"]::after{transform:translateX(20px);background:var(--bamboo)}
+.agenda{display:grid;grid-template-columns:52px repeat(6,minmax(0,1fr));gap:3px;font-size:.74rem;overflow-x:auto;min-width:0}
+.agenda .h{color:var(--mute);padding:6px 2px;text-align:center}
+.agenda .cell{min-height:36px;border-radius:6px;background:var(--ink);border:1px dashed var(--line);cursor:pointer;padding:3px 5px;line-height:1.2;overflow:hidden}
+.agenda .cell:hover{border-color:var(--bamboo)}
+.agenda .cell.t{background:rgba(127,191,138,.16);border:1px solid rgba(127,191,138,.45);color:var(--bone)}
+.agenda .cell.p{background:repeating-linear-gradient(135deg,rgba(244,185,66,.14) 0 6px,transparent 6px 12px);border:1px solid rgba(244,185,66,.5)}
+.agenda .cell.x{opacity:.45;text-decoration:line-through}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.svc{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.svc b{font:700 1rem var(--f-display);letter-spacing:-.01em}.svc small{color:var(--mute)}
+@media(max-width:900px){.d-two{grid-template-columns:1fr}.agenda{min-width:560px}.agenda-wrap{overflow-x:auto}}
+
+/* ---------- Versiones y actualizaciones ---------- */
+.versiones{padding-bottom:clamp(40px,8vh,100px)}
+.steps.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1000px){.steps.four{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps.four{grid-template-columns:1fr}}
+.upd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;margin-top:12px}
+.upd-card{background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:14px}
+.upd-card .ver{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.upd-card .ver b{font:800 2rem var(--f-display);letter-spacing:-.04em}
+.upd-card ul{margin:0;padding-left:18px;color:var(--mute);font-size:.95rem}
+.upd-facts{display:flex;flex-direction:column;gap:0}
+.upd-facts div{padding:16px 0;border-top:1px solid var(--line)}
+.upd-facts b{display:block;font:600 1.1rem var(--f-display);letter-spacing:-.015em;margin-bottom:4px}
+.upd-facts span{color:var(--mute);font-size:.96rem}
+@media(max-width:900px){.upd{grid-template-columns:1fr}}
+@media(max-width:600px){.mesa{width:56px;height:56px;font-size:.95rem;border-width:1.5px}.mesa small{font-size:.56rem}.plano{height:250px}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-mark" viewBox="0 0 64 64">
+    <rect x="25" y="3" width="14" height="17" rx="7" fill="var(--bamboo)"/>
+    <rect x="25" y="24" width="14" height="17" rx="7" fill="var(--bamboo)"/>
+    <rect x="25" y="45" width="14" height="16" rx="7" fill="var(--bamboo)"/>
+    <path d="M39 22C39 12 47 6 59 6c0 10-8 16-20 16Z" fill="var(--leaf)"/>
+    <path d="M25 43c0 10-8 16-20 16 0-10 8-16 20-16Z" fill="var(--leaf)"/>
+  </symbol>
+</svg>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<nav class="nav" aria-label="Principal">
+  <a class="brand" href="#top" aria-label="Bambú Sistemas, inicio"><svg class="mark" aria-hidden="true"><use href="#logo-mark"/></svg><span><b>Bambú</b><small>Sistemas</small></span></a>
+  <ul>
+    <li><a href="#sistemas">Trabajos</a></li>
+    <li><a href="#probalo">Probalo</a></li>
+    <li><a href="#paginas-web">Páginas web</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#sobre-mi">Presentación</a></li>
+  </ul>
+  <a class="btn primary sm" href="#contacto" data-pick="">Pedir una demo</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-fallback"></div>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1><span class="ln"><span>Tu negocio,</span></span><span class="ln"><span>ordenado y</span></span><span class="ln"><span>a la vista.</span></span></h1>
+    <p class="hero-lead"><strong>Nos encargamos de diseñar, instalar y gestionar el sistema que tu negocio necesita, sea cual sea tu rubro.</strong> Cobrás, controlás y ves tus números desde un solo lugar, en el local o desde el celular.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#contacto" data-pick="">Pedir una demo</a>
+      <a class="btn" href="#sistemas">Ver nuestros trabajos</a>
+    </div>
+    <ul class="hero-pts">
+      <li>Funciona aunque se caiga internet</li>
+      <li>Mirás tu negocio desde el celular</li>
+      <li>Lo probás antes de decidir</li>
+    </ul>
+  </div>
+</header>
+
+<section class="statement">
+  <div class="wrap">
+    <p data-words>Cada negocio funciona distinto. Nos encargamos de entender el tuyo y de construir el sistema que le queda a medida, sin que tengas que entender de computación.</p>
+    <small>Los trabajos de esta página nacieron de hablar con dueños de negocios y de probar cada sistema en el mostrador.</small>
+  </div>
+</section>
+
+<section class="pains wrap" id="problemas">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>¿Te pasa algo de esto?</h2>
+    <p>Son los problemas de todos los días en un comercio. Para cada uno hay una solución concreta.</p>
+  </div>
+  <div class="pain"><h3>Se cae internet y no podés cobrar.</h3><p><b>Se sigue vendiendo.</b> El sistema trabaja en tu computadora y se actualiza solo cuando vuelve la conexión.</p></div>
+  <div class="pain"><h3>Al final del día no sabés cuánto ganaste.</h3><p><b>Caja y ganancias claras.</b> Ves lo que entró, lo que gastaste y lo que te queda, cada día.</p></div>
+  <div class="pain"><h3>Los pedidos por WhatsApp se mezclan.</h3><p><b>Todo ordenado.</b> Pedidos, turnos y entregas en una sola pantalla, cada uno en su lugar.</p></div>
+  <div class="pain"><h3>Querés vender online con tu propia marca.</h3><p><b>Tu página, a tu medida.</b> Con tienda, catálogo o reservas, y un diseño que no se parece a ningún otro.</p></div>
+</section>
+
+<section class="pains wrap" id="servicios">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>Nos encargamos de todo el sistema de tu negocio.</h2>
+    <p>Desde entender cómo trabajás hasta dejarlo funcionando y acompañarte después. Para cualquier tipo de negocio.</p>
+  </div>
+  <div class="pain"><h3>Sistemas de gestión a medida</h3><p>Caja, stock, pedidos, turnos, facturación y reportes. Se arma con lo que tu negocio necesita, sin pagar por funciones que no usás.</p></div>
+  <div class="pain"><h3>Páginas web con diseño único</h3><p>Tu marca y tu estilo, con tienda, catálogo o reservas adentro. Nada de plantillas.</p></div>
+  <div class="pain"><h3>Instalación, capacitación y licencias</h3><p>Lo dejamos instalado o publicado, enseñamos a tu equipo y gestionamos la licencia, incluida la de prueba.</p></div>
+  <div class="pain"><h3>Soporte y mejoras</h3><p>Atención directa, actualizaciones y nuevas funciones a medida que tu negocio crece.</p></div>
+  <p class="mode-note" style="margin-top:28px"><b>¿Tu rubro no está en los ejemplos de abajo?</b> No importa. Si tu negocio vende, atiende, reserva o entrega, podemos hacer su sistema.</p>
+</section>
+
+<section id="sistemas">
+  <div class="wrap sec-head">
+    <h2>Algunos de nuestros trabajos.</h2>
+    <p>Cada negocio es distinto y cada sistema se hace a medida. Estos casos muestran lo que se puede lograr. El tuyo se diseña desde cero con vos.</p>
+  </div>
+  <div id="chapters"></div>
+</section>
+
+<section class="probalo wrap" id="probalo">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>Probalo acá, sin instalar nada.</h2>
+    <p>Seis sistemas, cuatro módulos cada uno, funcionando en esta misma página con datos de ejemplo. Elegí uno y tocá, cobrá, agendá.</p>
+  </div>
+  <div class="mode-tabs" role="tablist" aria-label="Sistemas" id="demo-sys"></div>
+  <div class="mod-tabs" role="tablist" aria-label="Módulos" id="demo-mods"></div>
+  <p class="demo-note">Demostración con datos de ejemplo. Nada se guarda ni se envía.</p>
+  <div class="demo" id="demo-stage"></div>
+  <div class="proceso-cta"><a class="btn primary" href="#contacto" data-pick="demo">Quiero esto en mi negocio</a></div>
+</section>
+
+<section id="paginas-web">
+  <div class="wrap sec-head">
+    <h2>Páginas web únicas, hechas a medida.</h2>
+    <p>Nada de plantillas. Cada una tiene su propia identidad, su movimiento y lo que el negocio necesita adentro. Scrolleá para recorrerlas.</p>
+  </div>
+  <div id="sites"></div>
+  <div class="wrap"><div class="proceso-cta" style="padding-bottom:clamp(40px,8vh,100px)"><a class="btn primary" href="#contacto" data-pick="web">Quiero mi página web</a></div></div>
+</section>
+
+<section class="videos wrap" id="videos">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>Mirá cómo funcionan.</h2>
+    <p>Los sistemas andando, explicados en pocos minutos.</p>
+  </div>
+  <div class="vgrid" id="vgrid"></div>
+</section>
+
+
+<section class="modes wrap" id="modalidades">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>Elegí cómo querés tenerlo.</h2>
+    <p>Todos los sistemas funcionan de la misma manera. Elegimos juntos la modalidad que mejor le queda a tu negocio.</p>
+  </div>
+  <div class="mode-tabs" role="tablist" aria-label="Modalidades">
+    <button type="button" role="tab" aria-selected="true" aria-controls="m-local" id="t-local">Local</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="m-mixto" id="t-mixto">Mixto</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="m-nube" id="t-nube">Solo nube</button>
+  </div>
+  <div class="mode-panel" id="m-local" role="tabpanel" aria-labelledby="t-local">
+    <div><h3>Se instala en tu computadora.</h3><p>Todo queda en tu local. No depende de internet para funcionar.</p>
+      <ul><li>Vendés y cobrás aunque no haya conexión.</li><li>Tu información queda en tu propia computadora.</li><li>Ideal si tu internet es inestable o preferís tener todo en tu negocio.</li></ul></div>
+    <div class="mode-art"><svg viewBox="0 0 520 260" role="img" aria-label="Una computadora en el local"><g transform="translate(180,40)"><rect class="ic" width="160" height="104" rx="10"/><rect x="14" y="14" width="132" height="14" rx="4" class="ic-fill" opacity=".5"/><rect x="14" y="38" width="60" height="52" rx="6" class="ic-fill" opacity=".25"/><rect x="82" y="38" width="64" height="24" rx="6" class="ic-fill" opacity=".25"/><rect x="82" y="68" width="64" height="22" rx="6" class="ic-fill" opacity=".25"/><rect x="60" y="112" width="40" height="8" class="ic-fill"/><rect x="40" y="120" width="80" height="8" rx="4" class="ic-fill"/></g><text class="cap" x="260" y="200" text-anchor="middle">Tu local</text></svg></div>
+  </div>
+  <div class="mode-panel" id="m-mixto" role="tabpanel" aria-labelledby="t-mixto" hidden>
+    <div><h3>En tu local y en la nube, a la vez.</h3><p>La combinación más completa: vendés en el local y mirás todo desde donde estés.</p>
+      <ul><li>Vendés aunque se caiga internet.</li><li>Tu información se actualiza sola cada pocos segundos.</li><li>Ves ventas, caja y stock desde el celular.</li></ul></div>
+    <div class="mode-art"><svg viewBox="0 0 520 260" role="img" aria-label="Computadora del local conectada a la nube y al celular"><g transform="translate(14,70)"><rect class="ic" width="120" height="80" rx="8"/><rect x="10" y="10" width="100" height="10" rx="3" class="ic-fill" opacity=".5"/><rect x="10" y="28" width="44" height="40" rx="5" class="ic-fill" opacity=".25"/><rect x="42" y="88" width="36" height="6" class="ic-fill"/><rect x="26" y="94" width="68" height="6" rx="3" class="ic-fill"/></g><g transform="translate(200,50) scale(1.15)"><path class="ic" d="M20 80C6 80 -2 70 -2 58 -2 46 8 38 20 38 24 20 40 10 58 14 72 18 80 30 80 44 94 44 104 54 104 64 104 74 96 80 86 80Z"/></g><g transform="translate(410,60)"><rect class="ic" width="80" height="140" rx="14"/><rect x="10" y="22" width="60" height="10" rx="3" class="ic-fill" opacity=".5"/><rect x="10" y="40" width="60" height="30" rx="5" class="ic-fill" opacity=".25"/><rect x="10" y="78" width="60" height="30" rx="5" class="ic-fill" opacity=".25"/></g><path class="link" d="M140 120H215"/><path class="link" d="M338 120H405"/><text class="cap" x="74" y="190" text-anchor="middle">Tu local</text><text class="cap" x="285" y="190" text-anchor="middle">Nube</text><text class="cap" x="450" y="230" text-anchor="middle">Tu celular</text></svg></div>
+  </div>
+  <div class="mode-panel" id="m-nube" role="tabpanel" aria-labelledby="t-nube" hidden>
+    <div><h3>Sin instalar nada.</h3><p>Entrás desde cualquier dispositivo con internet. Nada que instalar ni mantener.</p>
+      <ul><li>Ideal para tiendas online, agendas de turnos y equipos en varios lugares.</li><li>Funciona desde la computadora, la tablet o el celular.</li><li>Siempre tenés la última versión.</li></ul></div>
+    <div class="mode-art"><svg viewBox="0 0 520 260" role="img" aria-label="Computadora y celular conectados a la nube"><g transform="translate(190,10) scale(1.15)"><path class="ic" d="M20 80C6 80 -2 70 -2 58 -2 46 8 38 20 38 24 20 40 10 58 14 72 18 80 30 80 44 94 44 104 54 104 64 104 74 96 80 86 80Z"/></g><g transform="translate(40,140)"><rect class="ic" width="120" height="76" rx="8"/><rect x="10" y="10" width="100" height="10" rx="3" class="ic-fill" opacity=".5"/><rect x="10" y="28" width="44" height="36" rx="5" class="ic-fill" opacity=".25"/><rect x="36" y="82" width="48" height="6" rx="3" class="ic-fill"/></g><g transform="translate(400,110)"><rect class="ic" width="70" height="120" rx="12"/><rect x="9" y="18" width="52" height="9" rx="3" class="ic-fill" opacity=".5"/><rect x="9" y="34" width="52" height="26" rx="5" class="ic-fill" opacity=".25"/></g><path class="link" d="M130 135L215 90"/><path class="link" d="M410 120L330 90"/><text class="cap" x="100" y="246" text-anchor="middle">Computadora</text><text class="cap" x="260" y="150" text-anchor="middle">Nube</text><text class="cap" x="435" y="250" text-anchor="middle">Celular</text></svg></div>
+  </div>
+  <p class="mode-note"><b>Todos los sistemas se manejan igual.</b> Elegís la modalidad, activamos tu licencia y empezás con tu información. Si tu negocio cambia, lo hablamos y lo adaptamos.</p>
+</section>
+
+<section class="proceso wrap" id="proceso">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>Así trabajamos.</h2>
+    <p>Primero te escuchamos, después lo ves funcionando con tus datos. Recién ahí decidís.</p>
+  </div>
+  <ol class="steps">
+    <li><h3>Charlamos</h3><p>Una llamada personalizada para conocer tu negocio y lo que necesitás.</p></li>
+    <li><h3>Relevamiento</h3><p>Miramos juntos cómo trabajás hoy: qué vendés, cómo cobrás y qué te hace perder tiempo.</p></li>
+    <li><h3>Probás la demo</h3><p>Activamos una licencia de prueba para que veas el sistema funcionando.</p></li>
+    <li><h3>Lo adaptamos y arrancamos</h3><p>Lo dejamos a tu medida, lo instalamos o lo publicamos, y enseñamos a tu equipo a usarlo.</p></li>
+    <li><h3>Te acompañamos</h3><p>Dudas, mejoras y versiones nuevas, con atención directa.</p></li>
+  </ol>
+  <div class="proceso-cta"><a class="btn primary" href="#contacto" data-pick="llamada">Quiero una llamada</a><a class="btn" href="#contacto" data-pick="relevamiento">Pedir un relevamiento</a></div>
+</section>
+
+<section class="versiones wrap" id="versiones">
+  <div class="sec-head" style="padding-inline:0">
+    <h2>Tu sistema se actualiza sin que vayamos al local.</h2>
+    <p>Cada mejora llega por internet. Vos elegís cuándo instalarla y tus datos no se tocan.</p>
+  </div>
+  <ol class="steps four">
+    <li><h3>Publicamos la versión</h3><p>Armamos la mejora y la subimos a la nube. No hace falta que nadie viaje.</p></li>
+    <li><h3>La asignamos a tu licencia</h3><p>Cada cliente tiene la versión que le corresponde. Podemos dejarla opcional o hacerla obligatoria.</p></li>
+    <li><h3>Tu sistema te avisa</h3><p>Al abrirlo aparece el aviso con las novedades. Tocás «Buscar actualización».</p></li>
+    <li><h3>Se instala sola</h3><p>Se descarga, se instala y el sistema se reabre. Tus datos y tu licencia quedan como estaban.</p></li>
+  </ol>
+  <div class="upd">
+    <div class="upd-card" id="upd">
+      <div class="ver"><span>Versión instalada</span><b id="upd-v">1.2.0</b></div>
+      <div class="d-prog" id="upd-bar" hidden><i style="width:0%"></i></div>
+      <p id="upd-msg" class="d-hint" style="margin:0">Probá cómo se actualiza un sistema.</p>
+      <ul id="upd-notes" hidden><li>Pantalla de caja más rápida.</li><li>Nuevo reporte de ventas por hora.</li><li>Avisos de stock más claros.</li></ul>
+      <button type="button" class="btn primary" id="upd-btn">Buscar actualización</button>
+    </div>
+    <div class="upd-facts">
+      <div><b>Modalidad local o mixta</b><span>La actualización se instala con un botón desde el propio sistema.</span></div>
+      <div><b>Modalidad en la nube</b><span>Es automática. Entrás y ya tenés la última versión.</span></div>
+      <div><b>Tus datos y tu licencia</b><span>La actualización no los borra ni los modifica.</span></div>
+      <div><b>Si necesitás ayuda</b><span>Nos escribís directo y lo resolvemos a distancia, sin que tengas que esperar una visita.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about wrap" id="sobre-mi">
+  <aside class="who">
+    <div class="photo" id="photo"><svg class="mark" aria-hidden="true"><use href="#logo-mark"/></svg></div>
+    <p class="who-name">Alan Rodrigo Moreno</p>
+    <p class="who-role">Desarrollador de software</p>
+  </aside>
+  <article class="letter" aria-labelledby="carta-t">
+    <h2 id="carta-t">Carta de presentación</h2>
+    <p>Estimado cliente:</p>
+    <p>Mi nombre es Alan Rodrigo Moreno y soy desarrollador de software. Me dedico a diseñar, instalar y gestionar sistemas de gestión y páginas web a medida, para negocios de cualquier rubro.</p>
+    <p>Mi trabajo es de atención directa: quien escucha sus necesidades es quien desarrolla el sistema, lo pone en marcha y lo acompaña después, sin intermediarios.</p>
+    <p>Quedo a su disposición para conversar sobre su proyecto, sin compromiso.</p>
+    <p class="sign">Atentamente,<b>Alan Rodrigo Moreno</b><span>Desarrollador de software</span></p>
+    <div class="letter-cta"><a class="btn primary" href="#contacto" data-pick="llamada">Solicitar una reunión</a><a class="btn" href="#contacto" data-pick="demo">Pedir una demo</a></div>
+  </article>
+</section>
+
+<section class="faq wrap" id="preguntas">
+  <div class="sec-head" style="padding-inline:0"><h2>Lo que más me preguntan.</h2><p>Si tu duda no está acá, escribime.</p></div>
+  <details><summary>¿Funciona si se cae internet?</summary><p>Sí, en las modalidades Local y Mixta. El sistema trabaja en tu computadora y cuando vuelve la conexión se actualiza solo.</p></details>
+  <details><summary>¿Puedo probarlo antes de contratar?</summary><p>Sí. Activamos una licencia de demostración para que lo veas funcionando y puedas decidir con tranquilidad.</p></details>
+  <details><summary>¿Cuánto cuesta?</summary><p>Depende del sistema y de la modalidad que elijas. Después del relevamiento te paso un presupuesto claro, hecho para tu negocio.</p></details>
+  <details><summary>¿Mi información está segura?</summary><p>Tus datos son solo tuyos. Cada comercio tiene su información separada de la de los demás y cada persona del equipo entra con su propio usuario.</p></details>
+  <details><summary>¿Y si mi negocio es distinto a los ejemplos?</summary><p>Es lo más común. Cada sistema se hace a medida y parte de tu forma de trabajar. Las mejoras nuevas se pueden sumar más adelante.</p></details>
+  <details><summary>¿Quién me atiende cuando tengo un problema?</summary><p>Quien desarrolló tu sistema. La atención es directa, sin call center ni intermediarios.</p></details>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Contame de tu negocio.</h2>
+      <p>Completá el formulario y te respondemos para coordinar tu demo, un relevamiento o una llamada. Sin compromiso.</p>
+      <div class="direct" id="direct"></div>
+    </div>
+    <form id="lead" novalidate>
+      <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
+      <div class="field"><label for="f-tel">Tu teléfono o WhatsApp</label><input id="f-tel" name="tel" inputmode="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-negocio">Tu negocio o rubro</label><input id="f-negocio" name="negocio" placeholder="Ej: despensa, taller, clínica, estética"></div>
+      <div class="field"><label for="f-quiero">¿Qué querés pedir?</label>
+        <select id="f-quiero" name="quiero"><option value="demo">Una demo de un sistema</option><option value="relevamiento">Un relevamiento de mi negocio</option><option value="llamada">Una llamada para charlar</option><option value="web">Una página web</option><option value="presupuesto">Un presupuesto</option></select></div>
+      <div class="field"><label for="f-need">¿Qué necesitás resolver?</label><select id="f-need" name="need"><option value="">No sé, quiero asesoramiento</option><option>Cobrar y controlar la caja</option><option>Pedidos y cocina</option><option>Turnos y agenda</option><option>Tienda online</option><option>Stock y compras</option><option>Una página web</option><option>Otra cosa</option></select></div>
+      <div class="field"><label for="f-modo">¿Cómo lo imaginás?</label>
+        <select id="f-modo" name="modo"><option>No sé, quiero que me asesores</option><option>Local (en mi computadora)</option><option>Mixto (local y nube)</option><option>Solo nube</option></select></div>
+      <div class="field full"><label for="f-msg">Contame un poco más (opcional)</label><textarea id="f-msg" name="msg"></textarea></div>
+      <button class="btn primary" type="submit" id="f-send">Enviar mi consulta</button>
+      <div class="result" id="result" hidden>
+        <b>Tu mensaje está listo.</b>
+        <textarea id="f-out" readonly></textarea>
+        <div class="row"><button class="btn primary sm" type="button" id="f-copy">Copiar mensaje</button><a class="btn sm" id="f-wa" href="#" target="_blank" rel="noopener" hidden>Abrir WhatsApp</a></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#logo-mark"/></svg><span><b>Bambú</b></span></a>
+    <span>© 2026 Alan Rodrigo Moreno. Diseño y gestión de sistemas y páginas web.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<a class="btn primary float-cta" id="float-cta" href="#contacto" data-pick="">Pedir una demo</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script>
+/* ============================================================
+   CONFIGURACIÓN: completá tus datos. Lo que dejes vacío no se muestra.
+   ============================================================ */
+const CONTACT = {
+  whatsapp: "5493541204059",   // solo números con código de país
+  whatsappTexto: "3541 20-4059",  // cómo se ve el número
+  email: "",
+  instagram: "",           // ej: "https://instagram.com/tu_usuario"
+  github: ""
+};
+
+/* Cada captura vive en /img con el nombre indicado. Si el archivo no existe, se muestra un marcador. */
+const SYSTEMS = [
+  {
+    id: "despensa", name: "Despensa 24/7", forWho: "Para despensas, kioscos y almacenes",
+    tag: "Cobrá rápido, controlá tu caja y mirá tus ventas desde el celular",
+    status: "En uso por clientes reales",
+    problem: "Se cae internet y no podés cobrar. Al final del día no sabés cuánto entró ni qué hay que reponer.",
+    solution: "Un sistema que se instala en tu computadora y sigue vendiendo sin internet. Cuando hay conexión, tu información se actualiza sola y la ves desde el celular.",
+    mods: [
+      { t: "Caja registradora ágil", d: "Atendé hasta cinco clientes a la vez, cobrá en efectivo, con QR o dividiendo el pago, y anotá el fiado sin perder el hilo.", img: "img/despensa-1-pos" },
+      { t: "Tu negocio de un vistazo", d: "Cuánto vendiste hoy y en la semana, y avisos de qué productos se están terminando.", img: "img/despensa-2-dashboard" },
+      { t: "Control de caja", d: "Abrís el turno, cerrás y cuadrás el dinero. Queda guardado cada día.", img: "img/despensa-3-caja" },
+      { t: "Productos y stock", d: "Tu catálogo con precios, categorías y stock. El sistema te avisa qué reponer antes de que se termine.", img: "img/despensa-4-productos" }
+    ],
+    perks: ["Funciona sin internet", "Lo mirás desde el celular", "Varias cajas y usuarios"],
+    floats: ["Sin internet, igual vendés", "Tu caja en el celular", "Fiado ordenado"]
+  },
+  {
+    id: "rotiseria", name: "Rotisería", forWho: "Para rotiserías, casas de comida y deliveries",
+    tag: "Pedidos, cocina y caja que se organizan solos",
+    status: "En uso por clientes reales",
+    problem: "Los pedidos entran «para las 21», la cocina no sabe cuándo arrancar y las cuentas están en un cuaderno.",
+    solution: "El sistema calcula cuándo empezar cada pedido y se lo avisa a la cocina a la hora justa. Con caja, insumos y ventas en un solo lugar.",
+    mods: [
+      { t: "Tomá pedidos sin errores", d: "En el mostrador, para llevar o delivery. Si piden para una hora, el pedido queda programado.", img: "img/roti-1-pedido" },
+      { t: "Cocina en pantalla", d: "La cocina ve cada pedido por estado, y el sistema le avisa cuándo empezar los programados.", img: "img/roti-2-cocina" },
+      { t: "Carta digital con QR", d: "Tu menú para escanear desde el celular y pedir por WhatsApp.", img: "img/roti-3-menu" },
+      { t: "Ventas e insumos", d: "Sabés qué se vende más y cuánto insumo gastás en cada plato.", img: "img/roti-4-ventas" }
+    ],
+    perks: ["Pedidos programados", "Menú con QR", "Control de insumos"],
+    floats: ["Pedidos programados", "Cocina en pantalla", "Menú con QR"]
+  },
+  {
+    id: "gastronomico", name: "LuVal", forWho: "Para restaurantes, bares y cafés",
+    tag: "Salón, cocina y caja trabajando juntos",
+    status: "En uso por clientes reales",
+    problem: "Las comandas en papel se pierden, el salón y la cocina se gritan, y el cierre del día lleva horas.",
+    solution: "El mozo toma el pedido en la mesa, la comanda sale en el sector correcto, la cocina la ve en pantalla y la caja cobra y factura.",
+    mods: [
+      { t: "Salón y mesas", d: "Ves el salón con el estado de cada mesa y quién la atiende.", img: "img/gastro-1-salon" },
+      { t: "Cocina en pantalla", d: "Las comandas llegan solas a la pantalla de cocina, por mesa y con el tiempo de espera. La cocina marca cuándo empieza y cuándo está listo.", img: "img/gastro-2-cocina" },
+      { t: "Toma de pedido", d: "Carta por categorías y envío directo a cocina. El mozo ve siempre el total de la mesa.", img: "img/gastro-3-pedido" },
+      { t: "Ventas y análisis", d: "Total facturado, platos más vendidos, comandas por hora y medios de pago, para decidir con números.", img: "img/gastro-4-estadisticas" }
+    ],
+    perks: ["Factura electrónica", "Turnos del personal", "Costos de recetas"],
+    floats: ["Comandas por sector", "Factura electrónica", "Turnos del personal"]
+  },
+  {
+    id: "pura-esencia", name: "Pura Esencia", forWho: "Para perfumerías y tiendas con marca propia",
+    tag: "Una tienda online con identidad propia y un panel para saber cuánto ganás de verdad",
+    status: "En uso por clientes reales",
+    problem: "Vendés por WhatsApp con un catálogo de otra plataforma y no tenés claro cuánto te deja cada venta.",
+    solution: "Una tienda hecha a tu medida, con animaciones que enamoran, pedidos y envíos ordenados, y un panel donde ves stock, costos y la ganancia de cada socio.",
+    mods: [
+      { t: "Una tienda que enamora", d: "Portada con video, productos que giran al scrollear y un diseño único con tu marca.", img: "img/pura-1-portada" },
+      { t: "Comprar es fácil", d: "Tu cliente compra sin crear cuenta, elige el envío, paga por transferencia o Mercado Pago y sigue su pedido con un link.", img: "img/pura-2-catalogo" },
+      { t: "Tu panel de control", d: "Pedidos, stock, proveedores y mermas en un solo lugar, con registro de quién cambió qué.", img: "img/pura-3-panel" },
+      { t: "Ganancias claras", d: "Cada producto muestra su costo, su margen y su stock, y cada venta guarda el costo del momento. Ves el reparto entre socios, y los precios mayoristas solo los ve quien tiene código.", img: "img/pura-4-finanzas" }
+    ],
+    perks: ["Diseño único", "Cobro con Mercado Pago", "Precios para mayoristas"],
+    floats: ["Diseño único", "Mercado Pago", "Ganancia por socio"]
+  },
+  {
+    id: "hesed", name: "Hesed Estética", forWho: "Para estéticas, spas y centros de bienestar",
+    tag: "Tu web con tu esencia y los turnos en orden",
+    status: "En uso por clientes reales",
+    problem: "Los turnos se arman a mano por WhatsApp, se pisan, y no sabés cuánto deja cada servicio.",
+    solution: "Una web con la identidad de tu espacio, donde tus clientas ven los servicios y los horarios libres reales, y un panel para la agenda, las fichas y la caja.",
+    mods: [
+      { t: "Una web con tu esencia", d: "Portada animada y carta de servicios con fotos, con el estilo de tu marca.", img: "img/hesed-1-web" },
+      { t: "Turnos con horarios reales", d: "La clienta elige servicio y horario libre, y te llega el pedido armado por WhatsApp. Más adelante puede reservar con seña online.", img: "img/hesed-2-reserva" },
+      { t: "Agenda y fichas", d: "Agenda por día o semana, bloqueos, reprogramaciones y la ficha de cada clienta, cuidando sus datos de salud.", img: "img/hesed-3-agenda" },
+      { t: "Caja y ganancias", d: "Ventas, gastos, productos y cuánto deja cada servicio.", img: "img/hesed-4-caja" }
+    ],
+    perks: ["Horarios libres reales", "Seña online opcional", "Datos de salud cuidados"],
+    floats: ["Horarios libres reales", "Seña online (opcional)", "Datos cuidados"]
+  },
+  {
+    id: "avenir", name: "Avenir", forWho: "Para consultoras y empresas de seguridad e higiene laboral",
+    tag: "Relevamientos, equipo en campo y documentación en un solo lugar",
+    status: "En uso por clientes reales",
+    problem: "Técnicos con planillas de papel, informes en Word y documentación dispersa.",
+    solution: "Una plataforma que se usa como app en el celular: el equipo carga relevamientos y registra su trabajo, y la oficina lo ve todo en tiempo real.",
+    mods: [
+      { t: "Ingreso seguro", d: "Cada persona entra con su usuario y la oficina aprueba las cuentas nuevas.", img: "img/avenir-1-login" },
+      { t: "Relevamiento de riesgos", d: "Formulario guiado en seis pasos para detectar peligros en cada puesto, valorarlos y definir medidas de control.", img: "img/avenir-2-iper" },
+      { t: "Equipo en el mapa", d: "Ves en el mapa las empresas y dónde está cada técnico, y le asignás un viaje con seguimiento en vivo.", img: "img/avenir-3-mapa" },
+      { t: "Estadísticas del trabajo", d: "Fichajes por día, horas por técnico, consumo de insumos, viáticos y relevamientos, para decidir con datos.", img: "img/avenir-4-estadisticas" },
+      { t: "Roles y permisos", d: "Cada persona ve solo lo que le corresponde, por rol o con permisos a medida.", img: "img/avenir-5-roles" }
+    ],
+    perks: ["Se usa como app", "Permisos por persona", "Equipo en el mapa"],
+    floats: ["Se usa como app", "Equipo en el mapa", "Permisos por persona"]
+  }
+];
+
+/* Páginas únicas: se recorren con scroll (tiras de capturas de cada web) */
+const SITES = [
+  { id: "pura", name: "Pura Esencia", desc: "Tienda de perfumería con una experiencia cinematográfica: video, perfumes que giran y un panel para gestionar todo.",
+    points: ["Portada con video y perfumes estrella", "Compra sin crear cuenta", "Panel de pedidos, stock y ganancias"],
+    imgs: ["img/pura-1-portada", "img/pura-home-1", "img/pura-home-2", "img/pura-home-3", "img/pura-home-4"] },
+  { id: "hesed", name: "Hesed Estética", desc: "Web de una estética con carta de servicios y reserva de turnos con horarios libres reales.",
+    points: ["Portada animada con identidad propia", "Reserva con calendario de horarios libres", "Agenda y caja en un panel"],
+    imgs: ["img/hesed-1-web", "img/hesed-home-1", "img/hesed-home-2", "img/hesed-home-3"] }
+];
+
+/* Videos: subí los archivos a la carpeta /videos con estos nombres, o poné el id de un video de YouTube en "youtube". */
+const VIDEOS = [
+  { title: "Despensa 24/7: tutorial del sistema", desc: "Cómo se usa el sistema de punto de venta, caja y stock, paso a paso.", file: "videos/video-3.mp4", poster: "img/video-3-poster", youtube: "" },
+  { title: "Rotisería: el sistema paso a paso", desc: "Una presentación del sistema, módulo por módulo: pedidos, cocina, caja y ventas.", file: "videos/video-2.mp4", poster: "img/video-2-poster", youtube: "" },
+  { title: "LuVal: tutorial del sistema", desc: "Salón, cocina, pedidos y estadísticas del sistema gastronómico, explicados en pantalla.", file: "videos/video-4.mp4", poster: "img/video-4-poster", youtube: "" },
+  { title: "Avenir: tutorial de la plataforma", desc: "Cómo se trabaja en la plataforma de seguridad e higiene laboral, de punta a punta.", file: "videos/video-1.mp4", poster: "img/video-1-poster", youtube: "" }
+];
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Capítulos ---------- */
+$("#chapters").innerHTML = SYSTEMS.map(s => {
+  const withImg = s.mods.filter(m => m.img);
+  let step = -1;
+  const lis = s.mods.map(m => {
+    if (!m.img) return `<li class="static"><span class="st">${esc(m.t)}</span><div class="d"><div><p>${esc(m.d)}</p></div></div></li>`;
+    step++;
+    return `<li data-step="${step}"${step === 0 ? ' class="on"' : ""}><button type="button" data-i="${step}">${esc(m.t)}</button><div class="d"><div><p>${esc(m.d)}</p></div></div></li>`;
+  }).join("");
+  return `
+<section class="sys" id="sys-${s.id}" data-sys="${s.id}">
+  <div class="sys-pin">
+    <div class="sys-bg" aria-hidden="true"><div class="sys-bgname">${esc(s.name)}</div></div>
+    <div class="sys-copy">
+      <p class="sys-status"><i></i>${esc(s.status)}</p>
+      <h3>${esc(s.name)}</h3>
+      <p class="sys-for">Rubro: ${esc(s.forWho.replace(/^Para /, "").replace(/^./, c => c.toUpperCase()))}</p>
+      <p class="sys-tag">${esc(s.tag)}</p>
+      <div class="sys-story"><p><b>El problema. </b>${esc(s.problem)}</p><p><b>La solución. </b>${esc(s.solution)}</p></div>
+      <ul class="mods">${lis}</ul>
+      <ul class="perks">${s.perks.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+      <div class="sys-cta"><a class="btn primary sm" href="#contacto" data-pick="caso:${s.id}">Quiero algo así para mi negocio</a></div>
+    </div>
+    <div class="sys-stage">
+      <div class="glow"></div>
+      <div class="floats">${s.floats.map(f => `<span class="float">${esc(f)}</span>`).join("")}</div>
+      <div class="tilt"><div class="device">
+        <div class="bar"><i></i><i></i><i></i><span class="url">${esc(s.name)} · ${esc(withImg[0].t)}</span></div>
+        <div class="screens">${withImg.map((m, i) => `<figure class="shot" data-src="${m.img}" data-label="${esc(m.t)}" data-v="${i % 4}"><figcaption>${esc(m.t)}</figcaption></figure>`).join("")}</div>
+      </div></div>
+    </div>
+  </div>
+</section>`;
+}).join("");
+
+/* ---------- Páginas únicas ---------- */
+$("#sites").innerHTML = SITES.map(w => `
+<section class="site" id="site-${w.id}" data-site="${w.id}">
+  <div class="site-pin">
+    <div class="site-copy">
+      <p class="sys-status"><i></i>Página hecha a medida</p>
+      <h3>${esc(w.name)}</h3>
+      <p>${esc(w.desc)}</p>
+      <ul>${w.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+    </div>
+    <div class="site-stage"><div class="site-frame">
+      <div class="bar"><i></i><i></i><i></i><span class="url">${esc(w.name)}</span></div>
+      <div class="site-view"><div class="strip">${w.imgs.map((src, i) => `<figure class="shot" data-src="${src}" data-label="${esc(w.name)}" data-v="${i % 4}"></figure>`).join("")}</div></div>
+    </div></div>
+  </div>
+</section>`).join("");
+
+/* ---------- Videos ---------- */
+(() => {
+  const PLAY = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>`;
+  $("#vgrid").innerHTML = VIDEOS.map((v, i) => `<figure class="vcard"><div class="vbox" id="vb-${i}"><span class="soon">Video próximamente</span></div><figcaption><b>${esc(v.title)}</b>${esc(v.desc)}</figcaption></figure>`).join("");
+  VIDEOS.forEach(async (v, i) => {
+    const box = $("#vb-" + i);
+    const mountVideo = () => {
+      box.innerHTML = `<video controls preload="metadata" playsinline src="${v.file}"></video>`;
+      loadImg(v.poster, im => { const el = $("video", box); if (el) el.poster = im.src; }, () => {});
+    };
+    try {
+      const r = await fetch(v.file, { method: "HEAD" });
+      if (r.ok && !/text\/html/.test(r.headers.get("content-type") || "")) return mountVideo();
+    } catch (e) { /* sin archivo */ }
+    if (v.youtube) {
+      box.innerHTML = `<img alt="" src="https://img.youtube.com/vi/${v.youtube}/hqdefault.jpg"><button class="vplay" type="button" aria-label="Reproducir ${esc(v.title)}">${PLAY}</button>`;
+      $(".vplay", box).onclick = () => { box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.youtube}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="${esc(v.title)}"></iframe>`; };
+    }
+  });
+})();
+
+/* Capturas: imagen real si existe (.webp, .jpg o .png); si no, marcador */
+function loadImg(src, ok, fail) {
+  const base = src.replace(/\.(png|jpe?g|webp)$/i, "");
+  const exts = [".webp", ".jpg", ".png"]; let i = 0;
+  const next = () => { if (i >= exts.length) return fail(); const im = new Image(); im.decoding = "async"; im.onload = () => ok(im); im.onerror = next; im.src = base + exts[i++]; };
+  next();
+}
+$$(".shot").forEach(f => {
+  const label = f.dataset.label, v = f.dataset.v;
+  loadImg(f.dataset.src, im => { im.alt = label; f.prepend(im); }, () => f.insertAdjacentHTML("afterbegin",
+    `<div class="ph v${v}"><div class="side"><i></i><i></i><i></i><i></i><i></i></div><div class="main"><div class="kpis"><i></i><i></i><i></i></div><div class="chart"></div></div><div class="lbl">${label}<small>Captura pendiente</small></div></div>`));
+});
+/* Foto personal (opcional): img/alan.webp, .jpg o .png */
+loadImg("img/alan", im => { im.alt = "Alan Moreno"; $("#photo").prepend(im); }, () => {});
+
+/* ---------- Modalidades ---------- */
+$$(".mode-tabs [role=tab]").forEach(tab => tab.addEventListener("click", () => {
+  $$(".mode-tabs [role=tab]").forEach(t => t.setAttribute("aria-selected", t === tab));
+  $$(".mode-panel").forEach(p => p.hidden = p.id !== tab.getAttribute("aria-controls"));
+}));
+
+/* ---------- Formulario de consulta ---------- */
+$$("[data-pick]").forEach(a => a.addEventListener("click", () => {
+  const v = a.dataset.pick;
+  if (!v) return;
+  if (v.startsWith("caso:")) { const S = SYSTEMS.find(s => s.id === v.slice(5)); $("#f-quiero").value = "demo"; if (S && !$("#f-msg").value) $("#f-msg").value = "Me interesa algo parecido a " + S.name + "."; }
+  else $("#f-quiero").value = v;
+}));
+const QUIERO = { demo: "una demo", relevamiento: "un relevamiento de mi negocio", llamada: "una llamada para charlar", web: "una página web", presupuesto: "un presupuesto" };
+$("#lead").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = Object.fromEntries(new FormData(e.target));
+  const lines = [
+    `Hola Alan, soy ${f.nombre || "(sin nombre)"}.`,
+    `Quiero pedir ${QUIERO[f.quiero]}.`,
+    f.negocio ? `Mi negocio: ${f.negocio}.` : "",
+    f.need ? `Necesito resolver: ${f.need}.` : "",
+    `Modalidad: ${f.modo}.`,
+    f.tel ? `Mi teléfono: ${f.tel}.` : "",
+    f.msg ? `Detalle: ${f.msg}` : ""
+  ].filter(Boolean).join("\n");
+  $("#f-out").value = lines;
+  $("#result").hidden = false;
+  const wa = $("#f-wa");
+  if (CONTACT.whatsapp) { wa.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(lines)}`; wa.hidden = false; }
+  $("#result").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
+});
+$("#f-copy").addEventListener("click", async () => {
+  const b = $("#f-copy"), t = $("#f-out");
+  try { await navigator.clipboard.writeText(t.value); b.textContent = "Copiado"; } catch (e) { t.select(); b.textContent = "Seleccioná y copiá"; }
+  setTimeout(() => b.textContent = "Copiar mensaje", 2000);
+});
+(() => {
+  let h = "";
+  if (CONTACT.whatsapp) h += `<a class="btn primary" href="https://wa.me/${CONTACT.whatsapp}" target="_blank" rel="noopener">Escribime por WhatsApp</a>`;
+  if (CONTACT.whatsappTexto) h += `<span>${esc(CONTACT.whatsappTexto)}</span>`;
+  if (CONTACT.email) h += `<span>${esc(CONTACT.email)}</span>`;
+  if (CONTACT.instagram) h += `<a class="btn sm" href="${CONTACT.instagram}" target="_blank" rel="noopener">Instagram</a>`;
+  $("#direct").innerHTML = h;
+})();
+
+/* ---------- Scroll suave + GSAP ---------- */
+gsap.registerPlugin(ScrollTrigger);
+let lenis = null;
+if (!reduce && window.Lenis) {
+  lenis = new Lenis({ lerp: .1, smoothWheel: true });
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+}
+$$('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+  const t = $(a.getAttribute("href")); if (!t) return;
+  e.preventDefault();
+  lenis ? lenis.scrollTo(t, { offset: -10 }) : t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+}));
+
+/* Botón flotante: aparece después del hero y se oculta en el contacto */
+(() => {
+  const b = $("#float-cta"), hero = $("#top"), contact = $("#contacto"), carta = $("#sobre-mi");
+  const upd = () => { const y = scrollY, mid = y + innerHeight / 2, past = y > hero.offsetHeight * .8, atContact = y + innerHeight > contact.offsetTop + 200, inLetter = mid > carta.offsetTop && mid < carta.offsetTop + carta.offsetHeight; b.classList.toggle("on", past && !atContact && !inLetter); };
+  addEventListener("scroll", upd, { passive: true }); upd();
+})();
+
+/* Manifiesto: las palabras se encienden con el scroll */
+$$("[data-words]").forEach(el => {
+  el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="w">${esc(w)}</span>`).join(" ");
+  if (reduce) return;
+  gsap.to($$(".w", el), { opacity: 1, stagger: .1, ease: "none", scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: true } });
+});
+
+/* Capítulos pineados: el visor se despliega y cada módulo revela su captura */
+const mm = gsap.matchMedia();
+mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
+  $$(".sys").forEach(sys => {
+    const pin = $(".sys-pin", sys), device = $(".device", sys), tilt = $(".tilt", sys), stage = $(".sys-stage", sys), bgname = $(".sys-bgname", sys);
+    const shots = $$(".shot", sys), lis = $$(".mods li[data-step]", sys), mods = $(".mods", sys), floats = $$(".float", sys), url = $(".url", sys);
+    const S = SYSTEMS.find(s => s.id === sys.dataset.sys), withImg = S.mods.filter(m => m.img), n = shots.length;
+    const tl = gsap.timeline({ defaults: { ease: "none" } });
+    tl.fromTo(device, { rotateY: -36, rotateX: 18, scale: .58, z: -280, y: 100, opacity: .15 }, { rotateY: -8, rotateX: 4, scale: 1, z: 0, y: 0, opacity: 1, duration: 1, ease: "power2.out" }, 0);
+    tl.fromTo(shots[0], { clipPath: "inset(16% 22% 16% 22% round 18px)", filter: "blur(16px) grayscale(1) brightness(.4)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", filter: "blur(0px) grayscale(0) brightness(1)", duration: 1, ease: "power2.out" }, 0);
+    for (let i = 1; i < n; i++) tl.fromTo(shots[i], { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: .6, ease: "power2.inOut" }, i);
+    if (n > 1) tl.to(device, { rotateY: 7, rotateX: 1.5, duration: n - 1 }, 1);
+    floats.forEach((f, k) => {
+      tl.fromTo(f, { y: 140 + k * 60, z: 40 + k * 60, opacity: 0 }, { y: -120 - k * 40, duration: n + .4 }, 0);
+      tl.to(f, { opacity: 1, duration: .5 }, .2 + k * .2).to(f, { opacity: 0, duration: .5 }, n - .1);
+    });
+    if (bgname) tl.fromTo(bgname, { xPercent: 6 }, { xPercent: -22, duration: n + .4 }, 0);
+    tl.to({}, { duration: .4 }, n);
+    let cur = -1;
+    const setActive = i => {
+      if (i === cur) return; cur = i;
+      lis.forEach((li, k) => li.classList.toggle("on", k === i));
+      mods.style.setProperty("--p", n > 1 ? (i / (n - 1)).toFixed(3) : "0");
+      url.textContent = S.name + " · " + withImg[i].t;
+    };
+    const st = ScrollTrigger.create({
+      trigger: sys, start: "top top", end: () => "+=" + Math.round(innerHeight * (n + .4) * .55),
+      pin, pinSpacing: true, scrub: .5, animation: tl, anticipatePin: 1, invalidateOnRefresh: true,
+      onUpdate: self => setActive(Math.min(n - 1, Math.max(0, Math.floor(self.progress * tl.duration() - .25))))
+    });
+    $$("button[data-i]", sys).forEach(b => b.addEventListener("click", () => {
+      const i = +b.dataset.i, t = i === 0 ? .9 : i + .7;
+      const y = st.start + (t / tl.duration()) * (st.end - st.start);
+      lenis ? lenis.scrollTo(y, { duration: 1.1 }) : window.scrollTo({ top: y, behavior: "smooth" });
+    }));
+    if (matchMedia("(pointer: fine)").matches) {
+      const rx = gsap.quickTo(tilt, "rotationX", { duration: .7, ease: "power3.out" });
+      const ry = gsap.quickTo(tilt, "rotationY", { duration: .7, ease: "power3.out" });
+      stage.addEventListener("pointermove", e => { const r = stage.getBoundingClientRect(); ry(((e.clientX - r.left) / r.width - .5) * 8); rx(-((e.clientY - r.top) / r.height - .5) * 6); });
+      stage.addEventListener("pointerleave", () => { rx(0); ry(0); });
+    }
+  });
+  /* Páginas únicas: la página completa se recorre sola mientras scrolleás */
+  $$(".site").forEach(site => {
+    const pin = $(".site-pin", site), frame = $(".site-frame", site), strip = $(".strip", site), k = $$(".shot", strip).length;
+    const tl = gsap.timeline({ defaults: { ease: "none" } });
+    tl.fromTo(frame, { rotateX: 22, y: 80, scale: .88, opacity: .25 }, { rotateX: 0, y: 0, scale: 1, opacity: 1, duration: .6, ease: "power2.out" }, 0);
+    tl.fromTo(strip, { yPercent: 0 }, { yPercent: -(100 / k) * (k - 1), duration: k }, .4);
+    tl.to({}, { duration: .3 }, k + .4);
+    ScrollTrigger.create({ trigger: site, start: "top top", end: () => "+=" + Math.round(innerHeight * (k + .7) * .5), pin, pinSpacing: true, scrub: .5, animation: tl, anticipatePin: 1, invalidateOnRefresh: true });
+  });
+});
+
+/* ---------- Probalo: 6 sistemas x 4 módulos (todo ocurre en el navegador, con datos de ejemplo) ---------- */
+const money = n => "$ " + Math.round(n).toLocaleString("es-AR");
+const pad2 = n => String(n).padStart(2, "0");
+const hhmm = d => pad2(d.getHours()) + ":" + pad2(d.getMinutes());
+let toastTimer;
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("on"), 2600); }
+const DEMOS = [], STATE = {}; let TIMERS = [], curSys = 0, curMod = 0;
+const timer = (fn, ms) => { const id = setInterval(fn, ms); TIMERS.push(id); return id; };
+const DAYN = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"], MONN = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+const opts = (arr, sel) => arr.map((o, i) => `<option value="${i}"${i === sel ? " selected" : ""}>${esc(Array.isArray(o) ? o[0] : o)}</option>`).join("");
+
+/* ===================== DESPENSA 24/7 ===================== */
+function dCaja(root, S) {
+  const P = [["Gaseosa 2,25 L", 2800], ["Chocolate barra 40 g", 1170], ["Leche entera 1 L", 1100], ["Yerba mate 1 kg", 3200], ["Arroz 1 kg", 1300], ["Galletitas surtidas", 1500], ["Agua mineral 500 ml", 900], ["Alfajor triple", 1100]];
+  const cart = S.cart ||= new Map(), day = S.day ||= { ef: 0, qr: 0, tj: 0, n: 0, tot: 0 }; S.pay ||= "Efectivo";
+  const q = s => root.querySelector(s);
+  root.innerHTML = `<div class="d-pos">
+    <div><h4>Tocá un producto para sumarlo</h4><div class="d-prods">${P.map((p, i) => `<button type="button" class="d-prod" data-i="${i}">${esc(p[0])}<b>${money(p[1])}</b></button>`).join("")}</div></div>
+    <div class="d-cart"><h4>Cliente 1</h4><div class="d-lines" id="pos-lines"></div>
+      <div class="d-total"><span>Total</span><b id="pos-total">$ 0</b></div>
+      <div class="d-pay" id="pos-pay">${["Efectivo", "QR", "Tarjeta", "Dividido"].map(m => `<button type="button" class="d-pill" aria-pressed="${m === S.pay}" data-m="${m}">${m === "Dividido" ? "Pago dividido" : m}</button>`).join("")}</div>
+      <div class="d-row" id="pos-cash"><label for="pos-with">Paga con</label><input id="pos-with" type="number" inputmode="numeric" min="0" placeholder="$"><span id="pos-change"></span></div>
+      <button type="button" class="btn primary" id="pos-go">Cobrar</button>
+      <div class="d-day3"><div>Ventas de hoy<b id="d-tot">$ 0</b></div><div>Tickets<b id="d-n">0</b></div><div>Efectivo / QR / Tarjeta<b id="d-mix">0 / 0 / 0</b></div></div></div></div>`;
+  const total = () => [...cart].reduce((s, [i, n]) => s + P[i][1] * n, 0);
+  function render() {
+    q("#pos-lines").innerHTML = cart.size ? [...cart].map(([i, n]) => `<div class="d-line"><span>${esc(P[i][0])}</span><span class="q"><button type="button" data-d="-1" data-i="${i}" aria-label="Quitar uno">−</button>${n}<button type="button" data-d="1" data-i="${i}" aria-label="Sumar uno">+</button></span><b>${money(P[i][1] * n)}</b></div>`).join("") : `<p class="d-empty">El carrito está vacío.</p>`;
+    q("#pos-total").textContent = money(total());
+    q("#pos-cash").style.visibility = S.pay === "Efectivo" ? "visible" : "hidden";
+    const w = +q("#pos-with").value; q("#pos-change").textContent = S.pay === "Efectivo" && w ? (w >= total() ? "Vuelto: " + money(w - total()) : "Falta: " + money(total() - w)) : "";
+    q("#d-tot").textContent = money(day.tot); q("#d-n").textContent = day.n; q("#d-mix").textContent = [day.ef, day.qr, day.tj].map(v => Math.round(v / 1000) + "k").join(" / ");
+  }
+  root.onclick = e => {
+    const p = e.target.closest(".d-prod"); if (p) { const i = +p.dataset.i; cart.set(i, (cart.get(i) || 0) + 1); return render(); }
+    const b = e.target.closest(".q button"); if (b) { const i = +b.dataset.i, n = (cart.get(i) || 0) + +b.dataset.d; n > 0 ? cart.set(i, n) : cart.delete(i); return render(); }
+    const m = e.target.closest("#pos-pay .d-pill"); if (m) { S.pay = m.dataset.m; $$("#pos-pay .d-pill", root).forEach(x => x.setAttribute("aria-pressed", x === m)); return render(); }
+    if (e.target.id === "pos-go") {
+      if (!cart.size) return toast("Sumá al menos un producto");
+      const tot = total(); let ef = 0, qr = 0, tj = 0;
+      if (S.pay === "Efectivo") { const w = +q("#pos-with").value || tot; if (w < tot) return toast("El efectivo no alcanza"); ef = tot; }
+      else if (S.pay === "QR") qr = tot; else if (S.pay === "Tarjeta") tj = tot; else { ef = Math.round(tot / 2); qr = tot - ef; }
+      day.ef += ef; day.qr += qr; day.tj += tj; day.n++; day.tot += tot; cart.clear(); q("#pos-with").value = "";
+      render(); toast("Venta cobrada: " + money(tot) + (S.pay === "Dividido" ? " (mitad efectivo, mitad QR)" : ""));
+    }
+  };
+  root.oninput = e => { if (e.target.id === "pos-with") render(); };
+  render();
+}
+function dInicio(root, S) {
+  S.range ||= 7; S.low ||= [["Gaseosa 2,25 L", 3, 10, false], ["Leche entera 1 L", 5, 12, false], ["Yerba mate 1 kg", 2, 8, false]];
+  const b7 = [18200, 26900, 21400, 15600, 24100, 29800, 24570], b30 = Array.from({ length: 30 }, (_, i) => Math.round(16000 + ((i * 37) % 11) * 1500 + Math.sin(i * .9) * 3500));
+  function draw() {
+    const r = S.range, vals = r === 1 ? [b7[6]] : r === 7 ? b7 : b30, sum = vals.reduce((a, b) => a + b, 0), max = Math.max(...vals), best = vals.indexOf(max), n = vals.length;
+    const lab = i => { const d = new Date(); d.setDate(d.getDate() - (n - 1 - i)); return n > 10 ? (i % 7 === 0 ? d.getDate() + "/" + (d.getMonth() + 1) : "") : DAYN[d.getDay()]; };
+    root.innerHTML = `<div class="d-pay" style="margin-bottom:14px" id="rg">${[[1, "Hoy"], [7, "7 días"], [30, "30 días"]].map(([v, t]) => `<button type="button" class="d-pill" data-r="${v}" aria-pressed="${v === r}">${t}</button>`).join("")}</div>
+    <div class="d-kpis"><div class="d-kpi"><span>Ventas del período</span><b>${money(sum)}</b></div><div class="d-kpi"><span>Tickets emitidos</span><b>${Math.round(sum / 2650)}</b></div><div class="d-kpi"><span>Promedio por día</span><b>${money(sum / n)}</b></div><div class="d-kpi"><span>Fiados pendientes</span><b class="bad">$ 4.700</b></div></div>
+    <div class="d-two"><div><h4>Ventas ${r === 1 ? "de hoy" : "de los últimos " + r + " días"}</h4><div class="d-bars">${vals.map((v, i) => `<div class="d-bar${i === best && n > 1 ? " best" : ""}" title="${money(v)}"><b>${n <= 7 ? Math.round(v / 1000) + "k" : ""}</b><i style="height:${Math.max(3, v / max * 100)}%"></i><small>${lab(i)}</small></div>`).join("")}</div></div>
+    <div><h4>Stock crítico</h4><div class="d-list">${S.low.map(([nm, st, mn, done], i) => `<div class="d-item"><div>${esc(nm)}<small>Quedan ${st} · mínimo ${mn}</small></div>${done ? `<span class="d-chip g">Pedido enviado</span>` : `<button type="button" class="d-btn" data-p="${i}">Pedir al proveedor</button>`}</div>`).join("")}</div></div></div>`;
+  }
+  root.onclick = e => { const r = e.target.closest("[data-r]"); if (r) { S.range = +r.dataset.r; return draw(); } const p = e.target.closest("[data-p]"); if (p) { S.low[+p.dataset.p][3] = true; toast("Pedido enviado al proveedor"); draw(); } };
+  draw();
+}
+function dControl(root, S) {
+  const C = S.caja ||= { open: false, fondo: 5000, ef: 9670, movs: [], hist: [] };
+  function draw() {
+    if (!C.open) { root.innerHTML = `<h4>Caja cerrada</h4><p class="d-hint">Abrí el turno con el efectivo que dejás en la caja.</p><div class="d-form2"><div class="field"><label for="c-fondo">Fondo inicial</label><input id="c-fondo" type="number" value="${C.fondo}"></div><button type="button" class="btn primary" id="c-open">Abrir caja</button></div>
+      ${C.hist.length ? `<h4 style="margin-top:22px">Turnos anteriores</h4><div class="d-list">${C.hist.map(h => `<div class="d-item"><div>${esc(h.t)}<small>Esperado ${money(h.e)} · contado ${money(h.c)}</small></div><span class="d-chip ${h.d === 0 ? "g" : "r"}">${h.d === 0 ? "Cuadra" : (h.d > 0 ? "Sobran " : "Faltan ") + money(Math.abs(h.d))}</span></div>`).join("")}</div>` : ""}`; return; }
+    const ing = C.movs.filter(m => m.t === "Ingreso").reduce((s, m) => s + m.m, 0), egr = C.movs.filter(m => m.t === "Egreso").reduce((s, m) => s + m.m, 0), esp = C.fondo + C.ef + ing - egr;
+    root.innerHTML = `<div class="d-kpis"><div class="d-kpi"><span>Fondo inicial</span><b>${money(C.fondo)}</b></div><div class="d-kpi"><span>Ventas en efectivo</span><b>${money(C.ef)}</b></div><div class="d-kpi"><span>Ingresos</span><b class="ok">${money(ing)}</b></div><div class="d-kpi"><span>Egresos</span><b class="bad">${money(egr)}</b></div><div class="d-kpi"><span>Efectivo esperado</span><b class="warn">${money(esp)}</b></div></div>
+    <div class="d-two"><div><h4>Registrar un movimiento</h4><div class="d-form2"><div class="field"><label for="m-t">Tipo</label><select id="m-t"><option>Egreso</option><option>Ingreso</option></select></div><div class="field"><label for="m-m">Monto</label><input id="m-m" type="number" placeholder="$"></div></div>
+      <div class="field" style="margin:8px 0"><label for="m-r">Motivo</label><input id="m-r" placeholder="Ej: pago al repartidor de gaseosas"></div><button type="button" class="d-btn pri" id="m-add">Registrar</button>
+      <div class="d-list" style="margin-top:12px">${C.movs.map(m => `<div class="d-item"><div>${esc(m.r || "Sin motivo")}<small>${m.t}</small></div><b style="color:${m.t === "Ingreso" ? "var(--leaf)" : "#ff8a80"}">${m.t === "Ingreso" ? "+" : "−"} ${money(m.m)}</b></div>`).join("") || `<p class="d-empty">Sin movimientos en este turno.</p>`}</div></div>
+    <div><h4>Cerrar la caja</h4><p class="d-hint">Contá el efectivo y el sistema te dice si cuadra.</p><div class="field"><label for="c-cnt">Efectivo contado</label><input id="c-cnt" type="number" placeholder="$"></div><p id="c-diff" class="d-hint" style="margin:10px 0"></p><button type="button" class="d-btn pri" id="c-close">Cerrar caja</button></div></div>`;
+    root.dataset.esp = esp;
+  }
+  root.onclick = e => {
+    if (e.target.id === "c-open") { C.fondo = +root.querySelector("#c-fondo").value || 0; C.open = true; C.movs = []; toast("Caja abierta"); return draw(); }
+    if (e.target.id === "m-add") { const m = +root.querySelector("#m-m").value; if (!m) return toast("Poné un monto"); C.movs.unshift({ t: root.querySelector("#m-t").value, m, r: root.querySelector("#m-r").value }); return draw(); }
+    if (e.target.id === "c-close") { const v = root.querySelector("#c-cnt").value; if (v === "") return toast("Poné el efectivo contado"); const esp = +root.dataset.esp, d = +v - esp; C.hist.unshift({ t: "Turno de hoy", e: esp, c: +v, d }); C.open = false; toast(d === 0 ? "Caja cerrada: cuadra justo" : "Caja cerrada con diferencia de " + money(Math.abs(d))); draw(); }
+  };
+  root.oninput = e => { if (e.target.id === "c-cnt") { const d = +e.target.value - +root.dataset.esp, p = root.querySelector("#c-diff"); p.textContent = e.target.value === "" ? "" : d === 0 ? "Cuadra justo." : (d > 0 ? "Sobran " : "Faltan ") + money(Math.abs(d)); p.style.color = d === 0 ? "var(--leaf)" : "var(--sol)"; } };
+  draw();
+}
+function dStock(root, S) {
+  S.prods ||= [["Gaseosa 2,25 L", "Bebidas", 2800, 3, 10], ["Agua mineral 1,5 L", "Bebidas", 1000, 40, 12], ["Snack papas fritas 85 g", "Kiosco", 1900, 5, 10], ["Chocolate barra 40 g", "Kiosco", 1300, 25, 10], ["Cerveza rubia 473 ml", "Bebidas", 1650, 42, 12], ["Detergente 750 ml", "Limpieza", 1200, 20, 8], ["Leche entera 1 L", "Frío", 1100, 5, 12], ["Yerba mate 1 kg", "Almacén", 3200, 2, 8], ["Arroz 1 kg", "Almacén", 1300, 50, 15]];
+  S.f ||= "";
+  function draw() {
+    const rows = S.prods.map((p, i) => [p, i]).filter(([p]) => p[0].toLowerCase().includes(S.f.toLowerCase())), low = S.prods.filter(p => p[3] < p[4]).length;
+    root.innerHTML = `<div class="d-form2" style="margin-bottom:12px"><div class="field"><label for="s-f">Buscar producto</label><input id="s-f" value="${esc(S.f)}" placeholder="Ej: yerba"></div><div class="field" style="max-width:140px"><label for="s-pc">Aumento %</label><input id="s-pc" type="number" value="10"></div><button type="button" class="d-btn" id="s-up">Aplicar a lo que se ve</button><span class="d-chip ${low ? "" : "g"}">${low ? low + " para reponer" : "Todo en orden"}</span></div>
+    <div style="overflow-x:auto"><table class="d-tbl"><tr><th>Producto</th><th>Categoría</th><th class="num">Precio</th><th class="num">Stock</th><th></th></tr>${rows.map(([p, i]) => `<tr class="${p[3] < p[4] ? "low" : ""}"><td>${esc(p[0])}</td><td>${p[1]}</td><td class="num">${money(p[2])}</td><td class="num"><button type="button" class="d-btn" data-i="${i}" data-d="-1" aria-label="Quitar uno">−</button> <b>${p[3]}</b> <button type="button" class="d-btn" data-i="${i}" data-d="1" aria-label="Sumar uno">+</button></td><td>${p[3] < p[4] ? `<span class="d-chip">Reponer (mín ${p[4]})</span>` : ""}</td></tr>`).join("")}</table></div>`;
+    const f = root.querySelector("#s-f"); f.setSelectionRange(f.value.length, f.value.length);
+  }
+  root.onclick = e => {
+    const b = e.target.closest("[data-d]"); if (b) { const p = S.prods[+b.dataset.i]; p[3] = Math.max(0, p[3] + +b.dataset.d); return draw(); }
+    if (e.target.id === "s-up") { const pc = +root.querySelector("#s-pc").value || 0; S.prods.filter(p => p[0].toLowerCase().includes(S.f.toLowerCase())).forEach(p => p[2] = Math.round(p[2] * (1 + pc / 100) / 10) * 10); toast("Precios actualizados +" + pc + "%"); draw(); }
+  };
+  root.oninput = e => { if (e.target.id === "s-f") { S.f = e.target.value; const pos = e.target.selectionStart; draw(); const f = root.querySelector("#s-f"); f.focus(); f.setSelectionRange(pos, pos); } };
+  draw();
+}
+DEMOS.push({ id: "despensa", name: "Despensa 24/7", mods: [["Caja registradora", dCaja], ["Tu negocio de un vistazo", dInicio], ["Control de caja", dControl], ["Productos y stock", dStock]] });
+
+/* ===================== ROTISERÍA ===================== */
+const R_DISH = [["Pollo al spiedo entero", 35, 11500], ["Milanesa napolitana con fritas", 25, 9200], ["Pizza muzzarella grande", 20, 8600], ["Lasaña de verdura", 25, 8900], ["Empanadas de carne (docena)", 18, 12000]];
+function rProg(root, S) {
+  const st = S.p ||= { offset: 0, seq: 1, orders: [] };
+  const now = () => new Date(Date.now() + st.offset * 60000);
+  const def = () => { const d = now(); d.setMinutes(Math.ceil((d.getMinutes() + 120) / 15) * 15, 0, 0); return hhmm(d); };
+  const queue = () => st.orders.filter(o => o.s === "pend" || o.s === "prep").reduce((s, o) => s + o.mins, 0);
+  const startOf = o => new Date(o.due.getTime() - (o.mins + queue() + 5) * 60000);
+  function add(i, qty, timeStr, state) { const [h, m] = timeStr.split(":").map(Number), due = now(); due.setHours(h, m, 0, 0); if (due < now()) due.setDate(due.getDate() + 1); st.orders.push({ id: st.seq++, name: R_DISH[i][0], mins: R_DISH[i][1], qty, due, s: state || "prog" }); }
+  if (!st.orders.length) { add(1, 2, hhmm(new Date(Date.now() + 40 * 60000)), "pend"); add(0, 1, def()); }
+  root.innerHTML = `<div class="d-roti"><div class="d-form"><h4>Nuevo pedido</h4>
+    <div class="field"><label for="r-dish">Plato</label><select id="r-dish">${R_DISH.map((d, i) => `<option value="${i}">${esc(d[0])} (${d[1]} min)</option>`).join("")}</select></div>
+    <div class="field"><label for="r-qty">Cantidad</label><select id="r-qty"><option>1</option><option>2</option><option>3</option></select></div>
+    <div class="field"><label for="r-time">¿Para qué hora lo quiere?</label><input id="r-time" type="time" value="${def()}"></div>
+    <button type="button" class="btn primary" id="r-add">Agendar pedido</button><p class="demo-note" style="margin:0">El sistema calcula solo cuándo hay que empezar, según el tiempo del plato y lo que ya está en cocina.</p></div>
+    <div><div class="d-clock">Hora en el local: <b id="r-clock"></b><button type="button" class="d-pill" id="r-skip">Adelantar 30 minutos</button></div><div class="d-board"><div class="d-col" id="c-prog"></div><div class="d-col" id="c-cook"></div><div class="d-col" id="c-done"></div></div></div></div>`;
+  function render() {
+    root.querySelector("#r-clock").textContent = hhmm(now());
+    const card = (o, extra, btn) => `<div class="d-card ${extra || ""}"><b>#${o.id} · ${o.qty}× ${esc(o.name)}</b><small>${o.s === "prog" ? "Lo quiere para las " : "Para las "}${hhmm(o.due)}</small>${o.s === "prog" ? `<small>Arrancar a las <b>${hhmm(startOf(o))}</b> (en ${Math.max(0, Math.round((startOf(o) - now()) / 60000))} min)</small>` : ""}${btn || ""}</div>`;
+    const by = s => st.orders.filter(o => o.s === s);
+    root.querySelector("#c-prog").innerHTML = `<h5>Programados <span>esperando su hora</span></h5>` + (by("prog").map(o => card(o, "", `<button type="button" class="go" data-id="${o.id}" data-to="pend">Empezar ahora</button>`)).join("") || `<p class="d-empty">Sin pedidos programados.</p>`);
+    root.querySelector("#c-cook").innerHTML = `<h5>En cocina <span>${queue()} min de cola</span></h5>` + ([...by("pend"), ...by("prep")].map(o => card(o, o.late ? "late" : "", `<button type="button" class="go" data-id="${o.id}" data-to="${o.s === "pend" ? "prep" : "done"}">${o.s === "pend" ? "Empezar a preparar" : "Marcar listo"}</button>`)).join("") || `<p class="d-empty">Nada en cocina.</p>`);
+    root.querySelector("#c-done").innerHTML = `<h5>Listos <span>para entregar</span></h5>` + (by("done").map(o => card(o)).join("") || `<p class="d-empty">Todavía no hay pedidos listos.</p>`);
+  }
+  function tick() { st.orders.filter(o => o.s === "prog" && startOf(o) <= now()).forEach(o => { o.s = "pend"; o.late = true; toast("Cocina: hay que empezar el pedido #" + o.id); }); render(); }
+  root.onclick = e => {
+    if (e.target.id === "r-add") { add(+root.querySelector("#r-dish").value, +root.querySelector("#r-qty").value, root.querySelector("#r-time").value || def()); render(); return toast("Pedido agendado"); }
+    if (e.target.id === "r-skip") { st.offset += 30; return tick(); }
+    const g = e.target.closest(".go"); if (g) { st.orders.find(x => x.id === +g.dataset.id).s = g.dataset.to; render(); }
+  };
+  timer(tick, 1000); render();
+}
+function rToma(root, S) {
+  const T = S.t ||= { cart: new Map(), tipo: 0, hora: 0, sent: [], seq: 41 };
+  const MENU = [["Pollo al spiedo entero", 11500], ["Medio pollo con papas", 7800], ["Milanesa napolitana con fritas", 9200], ["Pizza muzzarella grande", 8600], ["Empanadas de carne (docena)", 12000], ["Ensalada mixta", 3800], ["Gaseosa 1,5 L", 3200], ["Flan casero", 3500]];
+  const total = () => [...T.cart].reduce((s, [i, n]) => s + MENU[i][1] * n, 0) + (T.tipo === 1 ? 1500 : 0);
+  function draw() {
+    root.innerHTML = `<div class="d-pos"><div><h4>Carta</h4><div class="d-prods">${MENU.map((m, i) => `<button type="button" class="d-prod" data-i="${i}">${esc(m[0])}<b>${money(m[1])}</b></button>`).join("")}</div></div>
+    <div class="d-cart"><h4>Pedido nuevo</h4><div class="d-lines">${T.cart.size ? [...T.cart].map(([i, n]) => `<div class="d-line"><span>${esc(MENU[i][0])}</span><span class="q"><button type="button" data-d="-1" data-i="${i}">−</button>${n}<button type="button" data-d="1" data-i="${i}">+</button></span><b>${money(MENU[i][1] * n)}</b></div>`).join("") : `<p class="d-empty">Tocá un plato para empezar.</p>`}</div>
+    <div class="d-pay" id="tp">${["Retiro en el local", "Delivery (+ $ 1.500)"].map((t, i) => `<button type="button" class="d-pill" data-tp="${i}" aria-pressed="${i === T.tipo}">${t}</button>`).join("")}</div>
+    <div class="field"><label for="t-h">¿Para cuándo?</label><select id="t-h">${opts(["Lo antes posible", "En 1 hora", "En 2 horas"], T.hora)}</select></div>
+    <div class="d-total"><span>Total</span><b>${money(total())}</b></div><button type="button" class="btn primary" id="t-send">Enviar a cocina</button></div></div>
+    ${T.sent.length ? `<h4 style="margin-top:20px">Enviados a cocina</h4><div class="d-list">${T.sent.map(s => `<div class="d-item"><div>#${s.id} · ${s.n} ${s.n === 1 ? "producto" : "productos"} · ${s.tipo}<small>${s.hora} · ${s.t}</small></div><span class="d-chip g">En cocina</span></div>`).join("")}</div>` : ""}`;
+  }
+  root.onclick = e => {
+    const p = e.target.closest(".d-prod"); if (p) { const i = +p.dataset.i; T.cart.set(i, (T.cart.get(i) || 0) + 1); return draw(); }
+    const b = e.target.closest(".q button"); if (b) { const i = +b.dataset.i, n = (T.cart.get(i) || 0) + +b.dataset.d; n > 0 ? T.cart.set(i, n) : T.cart.delete(i); return draw(); }
+    const t = e.target.closest("[data-tp]"); if (t) { T.tipo = +t.dataset.tp; return draw(); }
+    if (e.target.id === "t-send") { if (!T.cart.size) return toast("Sumá al menos un plato"); const h = root.querySelector("#t-h").value; T.hora = +h; T.sent.unshift({ id: T.seq++, n: [...T.cart.values()].reduce((a, b) => a + b, 0), tipo: T.tipo ? "Delivery" : "Retiro", hora: ["Lo antes posible", "Para dentro de 1 hora", "Para dentro de 2 horas"][+h], t: money(total()) }); T.cart.clear(); toast("Pedido #" + (T.seq - 1) + " enviado a cocina"); draw(); }
+  };
+  root.onchange = e => { if (e.target.id === "t-h") T.hora = +e.target.value; };
+  draw();
+}
+function rQR(root, S) {
+  const Q = S.q ||= { cart: new Map(), msg: false };
+  const CAT = [["Platos principales", [["Pollo al spiedo entero", 11500], ["Milanesa napolitana", 9200], ["Pizza muzzarella", 8600]]], ["Entradas", [["Empanadas (docena)", 12000], ["Tarta de jamón y queso", 5200]]], ["Bebidas y postres", [["Gaseosa 1,5 L", 3200], ["Flan casero", 3500]]]];
+  const flat = CAT.flatMap(c => c[1]), tot = () => [...Q.cart].reduce((s, [i, n]) => s + flat[i][1] * n, 0), cnt = () => [...Q.cart.values()].reduce((a, b) => a + b, 0);
+  const qr = Array.from({ length: 121 }, (_, i) => { const x = i % 11, y = Math.floor(i / 11), f = (x < 3 && y < 3) || (x > 7 && y < 3) || (x < 3 && y > 7); return f || ((x * 7 + y * 13 + x * y) % 3 === 0) ? "k" : ""; });
+  function draw() {
+    let idx = 0;
+    root.innerHTML = `<div class="d-two" style="align-items:center"><div class="phone"><header>Menú digital</header><div class="scroll">${CAT.map(c => `<h6>${c[0]}</h6>` + c[1].map(m => { const i = idx++; return `<div class="row"><span>${esc(m[0])}<br><b>${money(m[1])}</b></span><button type="button" data-i="${i}" aria-label="Sumar ${esc(m[0])}">+</button></div>`; }).join("")).join("")}</div><footer><button type="button" class="btn primary" style="width:100%" id="q-go">Ver pedido (${cnt()}) · ${money(tot())}</button></footer></div>
+    <div><h4>Tu carta, en el celular de tus clientes</h4><p class="d-hint">Cada cliente escanea el QR de la mesa o del mostrador, arma su pedido y te lo manda por WhatsApp.</p><div class="qr" aria-label="Código QR de ejemplo">${qr.map(k => `<i class="${k}"></i>`).join("")}</div><p class="d-hint" style="margin-top:6px">QR de ejemplo</p>
+    ${Q.msg ? `<div class="d-ok"><b>Así te llega el pedido</b><q>Hola, quiero pedir: ${[...Q.cart].map(([i, n]) => n + "× " + flat[i][0]).join(", ")}. Total ${money(tot())}.</q></div>` : ""}</div></div>`;
+  }
+  root.onclick = e => {
+    const b = e.target.closest("[data-i]"); if (b) { const i = +b.dataset.i; Q.cart.set(i, (Q.cart.get(i) || 0) + 1); Q.msg = false; return draw(); }
+    if (e.target.id === "q-go") { if (!Q.cart.size) return toast("Sumá algo de la carta"); Q.msg = true; draw(); toast("Pedido listo para enviar por WhatsApp"); }
+  };
+  draw();
+}
+function rIns(root, S) {
+  const REC = { 0: [["Pollo", 1, "u", 4200], ["Papas", .4, "kg", 900], ["Aceite", .05, "l", 2200]], 1: [["Carne", .25, "kg", 7800], ["Pan rallado", .05, "kg", 1500], ["Huevos", .5, "u", 180], ["Papas", .3, "kg", 900]], 2: [["Harina", .35, "kg", 700], ["Muzzarella", .25, "kg", 6900], ["Salsa", .1, "l", 1800]], 4: [["Carne", .3, "kg", 7800], ["Harina", .15, "kg", 700], ["Huevos", .3, "u", 180]] };
+  const STK = { Pollo: [60, "u"], Papas: [40, "kg"], Aceite: [12, "l"], Carne: [25, "kg"], "Pan rallado": [8, "kg"], Huevos: [90, "u"], Harina: [30, "kg"], Muzzarella: [20, "kg"], Salsa: [10, "l"] };
+  const sold = S.sold ||= { 0: 8, 1: 10, 2: 6, 4: 4 };
+  function draw() {
+    const use = {}; let ventas = 0, costo = 0;
+    Object.entries(sold).forEach(([k, n]) => { ventas += R_DISH[k][2] * n; REC[k].forEach(([nm, c, , pr]) => { use[nm] = (use[nm] || 0) + c * n; costo += c * n * pr; }); });
+    root.innerHTML = `<div class="d-two"><div><h4>Platos vendidos hoy</h4>${Object.keys(REC).map(k => `<div class="field" style="margin-bottom:10px"><label for="v${k}">${esc(R_DISH[k][0])}: <b>${sold[k]}</b></label><input id="v${k}" data-k="${k}" type="range" min="0" max="40" value="${sold[k]}"></div>`).join("")}
+    <div class="d-kpis"><div class="d-kpi"><span>Ventas</span><b>${money(ventas)}</b></div><div class="d-kpi"><span>Costo de insumos</span><b>${money(costo)}</b></div><div class="d-kpi"><span>Margen</span><b class="ok">${ventas ? Math.round((1 - costo / ventas) * 100) : 0}%</b></div></div></div>
+    <div><h4>Insumos que se descuentan solos</h4><div class="d-list">${Object.entries(STK).filter(([nm]) => use[nm]).map(([nm, [s, u]]) => { const left = s - use[nm], pc = Math.max(0, left / s * 100); return `<div class="d-item" style="display:block"><div style="display:flex;justify-content:space-between"><span>${nm}</span><span>Quedan ${Math.max(0, left).toFixed(1)} ${u} de ${s}</span></div><div class="d-prog" style="margin-top:6px"><i style="width:${pc}%;background:${pc < 20 ? "#ff8a80" : ""}"></i></div>${pc < 20 ? `<span class="d-chip r" style="margin-top:6px">Reponer</span>` : ""}</div>`; }).join("")}</div></div></div>`;
+  }
+  root.oninput = e => { if (e.target.dataset.k !== undefined) { sold[e.target.dataset.k] = +e.target.value; draw(); const el = root.querySelector(`[data-k="${e.target.dataset.k}"]`); el && el.focus(); } };
+  draw();
+}
+DEMOS.push({ id: "rotiseria", name: "Rotisería", mods: [["Pedidos programados", rProg], ["Toma de pedido", rToma], ["Carta con QR", rQR], ["Ventas e insumos", rIns]] });
+
+/* ===================== LUVAL (salón, pedido, cocina y cobro comparten datos) ===================== */
+const L_MENU = [["Provoleta a la parrilla", 6800, "Entradas"], ["Empanadas de carne (x3)", 7200, "Entradas"], ["Bife de chorizo con papas", 19800, "Platos"], ["Ravioles de ricota", 14500, "Platos"], ["Milanesa napolitana", 15800, "Platos"], ["Risotto de hongos", 16900, "Platos"], ["Gaseosa", 3200, "Bebidas"], ["Vino tinto copa", 4800, "Bebidas"], ["Cerveza artesanal", 5200, "Bebidas"], ["Flan mixto", 5400, "Postres"], ["Tiramisú", 6200, "Postres"]];
+function G(S) {
+  if (S.G) return S.G;
+  const pos = [[8, 10, 0], [28, 10, 1], [48, 10, 0], [68, 10, 1], [8, 56, 0], [30, 56, 0], [52, 56, 1], [74, 56, 0]];
+  const g = S.G = { mesas: pos.map(([x, y, r], i) => ({ n: i + 1, x, y, r, cap: r ? 2 : 4, order: null })), comandas: [], ventas: [{ t: 61200, m: "Efectivo", it: [[2, 3], [6, 3]] }, { t: 48500, m: "Tarjeta", it: [[3, 2], [8, 2]] }, { t: 29100, m: "QR / MP", it: [[4, 1], [6, 2]] }, { t: 74000, m: "Tarjeta", it: [[2, 2], [5, 2], [9, 2]] }], seq: 1, sel: 1 };
+  const seed = (n, items, com, ago) => { const m = g.mesas[n - 1]; m.order = { com, items: items.map(([i, q]) => ({ i, q, sent: true })), t0: Date.now() - ago * 60000 }; g.comandas.push({ id: g.seq++, mesa: n, items: items.map(([i, q]) => [i, q]), st: ago > 12 ? "prep" : "pend", t0: m.order.t0 }); };
+  seed(1, [[2, 2], [6, 2], [0, 1]], 4, 14); seed(2, [[3, 1], [7, 2]], 2, 9); seed(5, [[5, 3], [7, 3], [1, 2]], 6, 4);
+  return g;
+}
+const mTotal = m => m.order ? m.order.items.reduce((s, it) => s + L_MENU[it.i][1] * it.q, 0) : 0;
+function lSalon(root, S) {
+  const g = G(S); S.open = S.open || null;
+  function draw() {
+    const occ = g.mesas.filter(m => m.order);
+    root.innerHTML = `<div class="d-kpis"><div class="d-kpi"><span>Mesas ocupadas</span><b class="warn">${occ.length} de ${g.mesas.length}</b></div><div class="d-kpi"><span>Consumo en el salón</span><b>${money(occ.reduce((s, m) => s + mTotal(m), 0))}</b></div><div class="d-kpi"><span>Comensales</span><b>${occ.reduce((s, m) => s + m.order.com, 0)}</b></div></div>
+    <p class="d-hint">Tocá una mesa libre para abrirla, o una ocupada para ver su pedido.</p>
+    <div class="plano">${g.mesas.map(m => `<button type="button" class="mesa${m.r ? " r" : ""}${m.order ? " occ" : ""}${S.open === m.n ? " sel" : ""}" style="left:${m.x}%;top:${m.y}%" data-n="${m.n}"><span>${m.n}<small>${m.order ? money(mTotal(m)) : m.cap + " · libre"}</small></span></button>`).join("")}</div>
+    ${S.open ? `<div class="d-form2" style="margin-top:14px"><div class="field"><label for="l-com">Comensales en la mesa ${S.open}</label><select id="l-com">${[1, 2, 3, 4, 5, 6].map(n => `<option>${n}</option>`).join("")}</select></div><button type="button" class="d-btn pri" id="l-open">Abrir mesa y tomar el pedido</button></div>` : ""}`;
+  }
+  root.onclick = e => {
+    const b = e.target.closest(".mesa"); if (b) { const m = g.mesas[+b.dataset.n - 1]; if (m.order) { g.sel = m.n; return S.goto(1); } S.open = m.n; return draw(); }
+    if (e.target.id === "l-open") { const m = g.mesas[S.open - 1]; m.order = { com: +root.querySelector("#l-com").value, items: [], t0: Date.now() }; g.sel = m.n; S.open = null; toast("Mesa " + m.n + " abierta"); S.goto(1); }
+  };
+  draw();
+}
+function lPedido(root, S) {
+  const g = G(S); S.cat ||= "Platos";
+  function draw() {
+    const open = g.mesas.filter(m => m.order); if (!open.length) { root.innerHTML = `<p class="d-empty">No hay mesas abiertas. Abrí una desde el salón.</p><button type="button" class="d-btn pri" id="l-s">Ir al salón</button>`; root.onclick = e => { if (e.target.id === "l-s") S.goto(0); }; return; }
+    if (!g.mesas[g.sel - 1].order) g.sel = open[0].n;
+    const m = g.mesas[g.sel - 1], cats = [...new Set(L_MENU.map(x => x[2]))], pend = m.order.items.some(it => !it.sent);
+    root.innerHTML = `<div class="d-form2" style="margin-bottom:12px"><div class="field" style="max-width:220px"><label for="l-m">Mesa</label><select id="l-m">${open.map(x => `<option value="${x.n}"${x.n === g.sel ? " selected" : ""}>Mesa ${x.n} · ${money(mTotal(x))}</option>`).join("")}</select></div><div class="d-pay">${cats.map(c => `<button type="button" class="d-pill" data-c="${c}" aria-pressed="${c === S.cat}">${c}</button>`).join("")}</div></div>
+    <div class="d-pos"><div class="d-prods">${L_MENU.map((x, i) => [x, i]).filter(([x]) => x[2] === S.cat).map(([x, i]) => `<button type="button" class="d-prod" data-i="${i}">${esc(x[0])}<b>${money(x[1])}</b></button>`).join("")}</div>
+    <div class="d-cart"><h4>Mesa ${m.n} · ${m.order.com} comensales</h4><div class="d-lines">${m.order.items.length ? m.order.items.map((it, k) => `<div class="d-line"><span>${esc(L_MENU[it.i][0])} ${it.sent ? `<span class="d-chip g">En cocina</span>` : ""}</span><span class="q">${it.sent ? "" : `<button type="button" data-k="${k}" data-d="-1">−</button>`}${it.q}${it.sent ? "" : `<button type="button" data-k="${k}" data-d="1">+</button>`}</span><b>${money(L_MENU[it.i][1] * it.q)}</b></div>`).join("") : `<p class="d-empty">Tocá un plato para sumarlo.</p>`}</div>
+    <div class="d-total"><span>Total mesa</span><b>${money(mTotal(m))}</b></div><button type="button" class="btn primary" id="l-send"${pend ? "" : " disabled"}>Comandar a cocina</button></div></div>`;
+  }
+  root.onclick = e => {
+    const m = g.mesas[g.sel - 1];
+    const c = e.target.closest("[data-c]"); if (c) { S.cat = c.dataset.c; return draw(); }
+    const p = e.target.closest(".d-prod"); if (p) { const i = +p.dataset.i, ex = m.order.items.find(it => it.i === i && !it.sent); ex ? ex.q++ : m.order.items.push({ i, q: 1, sent: false }); return draw(); }
+    const b = e.target.closest("[data-k]"); if (b) { const it = m.order.items[+b.dataset.k]; it.q += +b.dataset.d; if (it.q <= 0) m.order.items.splice(+b.dataset.k, 1); return draw(); }
+    if (e.target.id === "l-send") { const nw = m.order.items.filter(it => !it.sent); if (!nw.length) return; g.comandas.push({ id: g.seq++, mesa: m.n, items: nw.map(it => [it.i, it.q]), st: "pend", t0: Date.now() }); nw.forEach(it => it.sent = true); toast("Comanda enviada a cocina"); draw(); }
+  };
+  root.onchange = e => { if (e.target.id === "l-m") { g.sel = +e.target.value; draw(); } };
+  draw();
+}
+function lCocina(root, S) {
+  const g = G(S);
+  function draw() {
+    const col = (st, t) => `<div class="d-col"><h5>${t} <span>${g.comandas.filter(c => c.st === st).length}</span></h5>${g.comandas.filter(c => c.st === st).map(c => `<div class="d-card"><b>#${c.id} · Mesa ${c.mesa}</b>${c.items.map(([i, q]) => `<span>${q}× ${esc(L_MENU[i][0])}</span>`).join("")}<small>${Math.max(1, Math.round((Date.now() - c.t0) / 60000))} min de espera</small><button type="button" class="go" data-id="${c.id}">${{ pend: "Empezar a preparar", prep: "Marcar listo", list: "Entregado" }[st]}</button></div>`).join("") || `<p class="d-empty">Sin comandas.</p>`}</div>`;
+    root.innerHTML = `<p class="d-hint">Las comandas llegan solas desde el salón. Avanzalas a medida que la cocina trabaja.</p><div class="d-board">${col("pend", "Pendientes")}${col("prep", "Preparando")}${col("list", "Listos")}</div>`;
+  }
+  root.onclick = e => { const b = e.target.closest(".go"); if (!b) return; const c = g.comandas.find(x => x.id === +b.dataset.id); if (c.st === "pend") c.st = "prep"; else if (c.st === "prep") c.st = "list"; else g.comandas.splice(g.comandas.indexOf(c), 1); draw(); };
+  timer(draw, 30000); draw();
+}
+function lCobro(root, S) {
+  const g = G(S); S.pay ||= "Efectivo";
+  function draw() {
+    const open = g.mesas.filter(m => m.order && m.order.items.length), sel = open.find(m => m.n === S.cm) || open[0]; S.cm = sel ? sel.n : null;
+    const tot = g.ventas.reduce((s, v) => s + v.t, 0), pm = {}; g.ventas.forEach(v => pm[v.m] = (pm[v.m] || 0) + v.t);
+    const top = {}; g.ventas.forEach(v => v.it.forEach(([i, q]) => top[i] = (top[i] || 0) + q)); const tops = Object.entries(top).sort((a, b) => b[1] - a[1]).slice(0, 4), mx = tops.length ? tops[0][1] : 1;
+    root.innerHTML = `<div class="d-two"><div><h4>Cobrar una mesa</h4>${sel ? `<div class="field"><label for="l-cm">Mesa</label><select id="l-cm">${open.map(m => `<option value="${m.n}"${m.n === sel.n ? " selected" : ""}>Mesa ${m.n} · ${money(mTotal(m))}</option>`).join("")}</select></div><div class="d-total" style="margin:12px 0"><span>Total</span><b>${money(mTotal(sel))}</b></div><div class="d-pay" id="lp">${["Efectivo", "Tarjeta", "QR / MP"].map(p => `<button type="button" class="d-pill" data-p="${p}" aria-pressed="${p === S.pay}">${p}</button>`).join("")}</div><button type="button" class="btn primary" style="margin-top:12px" id="l-cob">Cobrar y liberar la mesa</button>` : `<p class="d-empty">No hay mesas con consumo para cobrar. Tomá un pedido en el salón.</p>`}</div>
+    <div><h4>Ventas · análisis</h4><div class="d-kpis"><div class="d-kpi"><span>Total facturado</span><b>${money(tot)}</b></div><div class="d-kpi"><span>Operaciones</span><b>${g.ventas.length}</b></div><div class="d-kpi"><span>Ticket promedio</span><b>${money(tot / g.ventas.length)}</b></div></div>
+    <div class="d-list">${Object.entries(pm).map(([k, v]) => `<div class="d-item" style="display:block"><div style="display:flex;justify-content:space-between"><span>${k}</span><b>${money(v)}</b></div><div class="d-prog" style="margin-top:6px"><i style="width:${v / tot * 100}%"></i></div></div>`).join("")}</div>
+    <h4 style="margin-top:16px">Más vendidos</h4><div class="d-list">${tops.map(([i, q]) => `<div class="d-item" style="display:block"><div style="display:flex;justify-content:space-between"><span>${esc(L_MENU[i][0])}</span><b>${q} u.</b></div><div class="d-prog" style="margin-top:6px"><i style="width:${q / mx * 100}%"></i></div></div>`).join("")}</div></div></div>`;
+  }
+  root.onclick = e => {
+    const p = e.target.closest("[data-p]"); if (p) { S.pay = p.dataset.p; return draw(); }
+    if (e.target.id === "l-cob") { const m = g.mesas[S.cm - 1], t = mTotal(m); g.ventas.push({ t, m: S.pay, it: m.order.items.map(it => [it.i, it.q]) }); g.comandas = g.comandas.filter(c => c.mesa !== m.n); m.order = null; toast("Mesa " + m.n + " cobrada: " + money(t)); draw(); }
+  };
+  root.onchange = e => { if (e.target.id === "l-cm") { S.cm = +e.target.value; draw(); } };
+  draw();
+}
+DEMOS.push({ id: "luval", name: "LuVal", mods: [["Salón y mesas", lSalon], ["Toma de pedido", lPedido], ["Cocina en pantalla", lCocina], ["Cobro y ventas", lCobro]] });
+
+
+/* ===================== PURA ESENCIA ===================== */
+const P_CAT = [["Yara Candy", "Lattafa", 80000, "ella", "dia", "suave", "Frutas, vainilla y gourmand"], ["Yara Rosa", "Lattafa", 70000, "ella", "dia", "suave", "Frutas, crema y flores"], ["Her Confession", "Lattafa", 75000, "ella", "noche", "intensa", "Dulce, envolvente"], ["Asad", "Lattafa", 100000, "el", "noche", "intensa", "Vainilla, ámbar y especias"], ["Bharara King", "Bharara", 120000, "el", "dia", "intensa", "Fresco, especiado, amaderado"], ["Club de Nuit Intense", "Armaf", 100000, "el", "dia", "intensa", "Cítrico, ahumado, maderas"], ["9 PM Night Out", "Afnan", 150000, "uni", "noche", "intensa", "Dulce, nocturno, moderno"], ["Mandarín Sky", "Odyssey", 90000, "uni", "dia", "suave", "Cítrico y dulce"], ["Erba Pura", "Equivalencia", 50000, "uni", "dia", "suave", "Frutal y fresco"]];
+const pCart = S => S.cart ||= new Map();
+function pQuiz(root, S) {
+  const A = S.a ||= { who: null, when: null, how: null }, cart = pCart(S);
+  const Q = [["who", "¿Para quién es?", [["ella", "Para ella"], ["el", "Para él"], ["uni", "Para todos"]]], ["when", "¿Cuándo lo vas a usar?", [["dia", "De día"], ["noche", "De noche"]]], ["how", "¿Qué intensidad buscás?", [["suave", "Suave y fresca"], ["intensa", "Intensa y duradera"]]]];
+  function draw() {
+    const done = A.who && A.when && A.how;
+    const score = p => (p[3] === A.who ? 3 : p[3] === "uni" ? 1 : 0) + (p[4] === A.when ? 2 : 0) + (p[5] === A.how ? 2 : 0), res = P_CAT.map((p, i) => [p, i, score(p)]).sort((a, b) => b[2] - a[2]).slice(0, 3);
+    root.innerHTML = `<div class="d-two"><div>${Q.map(([k, t, o]) => `<h4>${t}</h4><div class="d-pay" style="margin-bottom:14px">${o.map(([v, l]) => `<button type="button" class="d-pill" data-k="${k}" data-v="${v}" aria-pressed="${A[k] === v}">${l}</button>`).join("")}</div>`).join("")}<button type="button" class="d-btn" id="q-rs">Empezar de nuevo</button></div>
+    <div><h4>${done ? "Tu selección" : "Respondé las tres preguntas"}</h4><div class="d-list">${done ? res.map(([p, i, s]) => `<div class="d-item"><div><b>${p[0]}</b><small>${p[1]} · ${p[6]}</small><small>${money(p[2])}</small></div><button type="button" class="d-btn pri" data-add="${i}">Sumar al carrito</button></div>`).join("") : `<p class="d-empty">Con tus respuestas te mostramos los perfumes que mejor te quedan.</p>`}</div>${cart.size ? `<p class="d-hint" style="margin-top:12px">En tu carrito: ${[...cart].map(([i, n]) => n + "× " + P_CAT[i][0]).join(", ")}. Seguí en «Carrito y compra».</p>` : ""}</div></div>`;
+  }
+  root.onclick = e => {
+    const b = e.target.closest("[data-k]"); if (b) { A[b.dataset.k] = b.dataset.v; return draw(); }
+    const a = e.target.closest("[data-add]"); if (a) { const i = +a.dataset.add; cart.set(i, (cart.get(i) || 0) + 1); toast("Sumado al carrito"); return draw(); }
+    if (e.target.id === "q-rs") { A.who = A.when = A.how = null; draw(); }
+  };
+  draw();
+}
+function pCarrito(root, S) {
+  const cart = pCart(S); S.env ??= 0; S.pago ??= 0; S.done = null;
+  const ENV = [["Vía Cargo", 4500], ["Correo Argentino", 3800], ["Retiro en el local", 0]], PAGO = ["Transferencia", "Mercado Pago"];
+  const sub = () => [...cart].reduce((s, [i, n]) => s + P_CAT[i][2] * n, 0);
+  function draw() {
+    if (S.done) { root.innerHTML = `<div class="d-ok"><b>Pedido confirmado</b>${S.done.res}<q>Seguimiento del pedido: /pedido/${S.done.tk}. El cliente no necesita crear una cuenta.</q></div><button type="button" class="d-btn" id="c-new" style="margin-top:12px">Armar otro pedido</button>`; root.onclick = e => { if (e.target.id === "c-new") { S.done = null; draw(); root.onclick = handler; } }; return; }
+    root.innerHTML = `<div class="d-two"><div><h4>Elegí tus fragancias</h4><div class="d-list">${P_CAT.map((p, i) => `<div class="d-item"><div>${p[0]}<small>${p[1]} · ${money(p[2])}</small></div><button type="button" class="d-btn" data-add="${i}">Agregar</button></div>`).join("")}</div></div>
+    <div class="d-cart"><h4>Tu carrito</h4><div class="d-lines">${cart.size ? [...cart].map(([i, n]) => `<div class="d-line"><span>${P_CAT[i][0]}</span><span class="q"><button type="button" data-i="${i}" data-d="-1">−</button>${n}<button type="button" data-i="${i}" data-d="1">+</button></span><b>${money(P_CAT[i][2] * n)}</b></div>`).join("") : `<p class="d-empty">Todavía no sumaste nada.</p>`}</div>
+    <div class="field"><label for="p-env">Envío</label><select id="p-env">${ENV.map((e, i) => `<option value="${i}"${i === S.env ? " selected" : ""}>${e[0]}${e[1] ? " (" + money(e[1]) + ")" : ""}</option>`).join("")}</select></div>
+    <div class="d-pay" id="pp">${PAGO.map((p, i) => `<button type="button" class="d-pill" data-pg="${i}" aria-pressed="${i === S.pago}">${p}</button>`).join("")}</div>
+    <div class="d-total"><span>Total</span><b>${money(sub() + (cart.size ? ENV[S.env][1] : 0))}</b></div><button type="button" class="btn primary" id="c-ok">Confirmar pedido</button></div></div>`;
+  }
+  const handler = root.onclick = e => {
+    const a = e.target.closest("[data-add]"); if (a) { const i = +a.dataset.add; cart.set(i, (cart.get(i) || 0) + 1); return draw(); }
+    const b = e.target.closest("[data-d]"); if (b) { const i = +b.dataset.i, n = (cart.get(i) || 0) + +b.dataset.d; n > 0 ? cart.set(i, n) : cart.delete(i); return draw(); }
+    const g = e.target.closest("[data-pg]"); if (g) { S.pago = +g.dataset.pg; return draw(); }
+    if (e.target.id === "c-ok") { if (!cart.size) return toast("Sumá una fragancia primero"); const tk = Math.random().toString(36).slice(2, 8).toUpperCase(); S.done = { tk, res: `${[...cart].map(([i, n]) => n + "× " + P_CAT[i][0]).join(", ")} · ${ENV[S.env][0]} · ${PAGO[S.pago]}` }; cart.clear(); draw(); }
+  };
+  root.onchange = e => { if (e.target.id === "p-env") { S.env = +e.target.value; draw(); } };
+  draw();
+}
+function pPanel(root, S) {
+  const C = S.calc ||= { p: 0, qty: 6, pack: false };
+  const COST = .6, PACK = 4000;
+  function draw() {
+    const pr = P_CAT[C.p], precio = pr[2], costo = Math.round(precio * COST), unit = precio - costo - (C.pack ? PACK : 0), tot = unit * C.qty;
+    root.innerHTML = `<div class="d-two"><div><h4>Simulá una venta</h4><div class="field"><label for="k-p">Perfume</label><select id="k-p">${P_CAT.map((p, i) => `<option value="${i}"${i === C.p ? " selected" : ""}>${p[0]} (${money(p[2])})</option>`).join("")}</select></div>
+      <div class="field" style="margin-top:10px"><label for="k-q">Unidades vendidas en el mes: <b>${C.qty}</b></label><input id="k-q" type="range" min="1" max="40" value="${C.qty}"></div>
+      <div class="d-row" style="margin-top:14px"><button type="button" class="sw" id="k-pk" aria-pressed="${C.pack}" aria-label="Descontar packaging"></button><span>Descontar el packaging (${money(PACK)} por pedido)</span></div></div>
+    <div><h4>Así lo ven los dos socios</h4><div class="d-kpis"><div class="d-kpi"><span>Costo congelado por unidad</span><b>${money(costo)}</b></div><div class="d-kpi"><span>Margen</span><b class="ok">${Math.round(unit / precio * 100)}%</b></div><div class="d-kpi"><span>Ganancia del mes</span><b class="warn">${money(tot)}</b></div></div>
+    <div class="d-list"><div class="d-item"><span>Socio 1 (50%)</span><b>${money(tot / 2)}</b></div><div class="d-item"><span>Socio 2 (50%)</span><b>${money(tot / 2)}</b></div></div><p class="d-hint" style="margin-top:10px">Cada venta guarda el costo del momento: si el costo cambia después, la ganancia ya vendida no se mueve.</p></div></div>`;
+  }
+  root.onclick = e => { if (e.target.closest("#k-pk")) { C.pack = !C.pack; draw(); } };
+  root.onchange = e => { if (e.target.id === "k-p") { C.p = +e.target.value; draw(); } };
+  root.oninput = e => { if (e.target.id === "k-q") { C.qty = +e.target.value; draw(); root.querySelector("#k-q").focus(); } };
+  draw();
+}
+function pMayor(root, S) {
+  const M = S.m ||= { ok: false, q: new Map() }, CODE = "DEMO";
+  const price = (p, n) => n >= 24 ? Math.round(p[2] * .62) : n >= 12 ? Math.round(p[2] * .67) : n >= 6 ? Math.round(p[2] * .72) : p[2];
+  function draw() {
+    if (!M.ok) { root.innerHTML = `<div class="d-two"><div><h4>Acceso mayorista</h4><p class="d-hint">Los precios por mayor no se ven en la tienda. Cada cliente entra con un código que crea el dueño.</p><div class="d-form2"><div class="field"><label for="m-c">Código</label><input id="m-c" placeholder="Probá con ${CODE}" autocomplete="off"></div><button type="button" class="d-btn pri" id="m-in">Entrar</button></div></div><div><h4>Lo que ve el público</h4><div class="d-list">${P_CAT.slice(0, 4).map(p => `<div class="d-item"><span>${p[0]}</span><b>${money(p[2])}</b></div>`).join("")}</div></div></div>`; return; }
+    const tot = [...M.q].reduce((s, [i, n]) => s + price(P_CAT[i], n) * n, 0), un = [...M.q.values()].reduce((a, b) => a + b, 0), MIN = 300000, star = Math.min(7, Math.floor(tot / 200000)), reg = un >= 5 && tot >= MIN;
+    root.innerHTML = `<div class="d-two"><div><h4>Tu catálogo mayorista</h4><div class="d-list">${P_CAT.map((p, i) => { const n = M.q.get(i) || 0; return `<div class="d-item"><div>${p[0]}<small>${money(price(p, n || 6))} c/u desde 6 · ${money(price(p, 12))} desde 12</small></div><span class="q d-line" style="display:flex;gap:6px;align-items:center"><button type="button" class="d-btn" data-i="${i}" data-d="-1">−</button><b>${n}</b><button type="button" class="d-btn" data-i="${i}" data-d="1">+</button></span></div>`; }).join("")}</div></div>
+    <div class="d-cart"><h4>Tu pedido mayorista</h4><div class="d-total"><span>Total</span><b>${money(tot)}</b></div><div><div class="d-prog"><i style="width:${Math.min(100, tot / MIN * 100)}%"></i></div><p class="d-hint" style="margin-top:6px">${reg ? "Superaste la compra mínima: recibís un regalo en miniatura y entrás al sorteo del mes." : "Compra mínima " + money(MIN) + " y 5 perfumes para el regalo y el sorteo."}</p></div>
+    <p>Nivel: ${"★".repeat(star)}${"☆".repeat(7 - star)}</p><button type="button" class="btn primary" id="m-send"${un ? "" : " disabled"}>Armar el pedido por WhatsApp</button></div></div>`;
+  }
+  root.onclick = e => {
+    if (e.target.id === "m-in") { if (root.querySelector("#m-c").value.trim().toUpperCase() === CODE) { M.ok = true; toast("Bienvenido, mayorista"); return draw(); } return toast("Código incorrecto. Probá con " + CODE); }
+    const b = e.target.closest("[data-d]"); if (b) { const i = +b.dataset.i, n = Math.max(0, (M.q.get(i) || 0) + +b.dataset.d); n ? M.q.set(i, n) : M.q.delete(i); return draw(); }
+    if (e.target.id === "m-send") toast("Pedido armado: se abre WhatsApp con el detalle");
+  };
+  draw();
+}
+DEMOS.push({ id: "pura", name: "Pura Esencia", mods: [["Encontrá tu perfume", pQuiz], ["Carrito y compra", pCarrito], ["Ganancias claras", pPanel], ["Precios mayoristas", pMayor]] });
+
+/* ===================== HESED ESTÉTICA ===================== */
+const H_SV = [["Masaje descontracturante", "Masajes", 60, 28000, 4200], ["Masaje relajante con piedras", "Masajes", 75, 30000, 4500], ["Masaje cervicocraneal", "Masajes", 30, 22000, 3300], ["Limpieza facial profunda", "Faciales", 75, 28000, 4200], ["Dermaplaning", "Faciales", 45, 35000, 5300], ["Microneedling", "Faciales", 60, 40000, 6000], ["Reflexología podal", "Corporales", 45, 25000, 3800], ["Promo: facial + masaje + merienda", "Promos", 120, 50000, 11000]];
+function hServ(root, S) {
+  S.cat ||= "Todos"; const cats = ["Todos", ...new Set(H_SV.map(s => s[1]))];
+  function draw() {
+    root.innerHTML = `<div class="d-pay" style="margin-bottom:14px">${cats.map(c => `<button type="button" class="d-pill" data-c="${c}" aria-pressed="${c === S.cat}">${c}</button>`).join("")}</div><div class="svc-grid">${H_SV.map((s, i) => [s, i]).filter(([s]) => S.cat === "Todos" || s[1] === S.cat).map(([s, i]) => `<div class="svc"><span class="d-chip g" style="align-self:flex-start">${s[1]}</span><b>${s[0]}</b><small>${s[2]} minutos</small><b style="color:var(--sol)">${money(s[3])}</b><button type="button" class="d-btn pri" data-r="${i}">Reservar</button></div>`).join("")}</div>`;
+  }
+  root.onclick = e => { const c = e.target.closest("[data-c]"); if (c) { S.cat = c.dataset.c; return draw(); } const r = e.target.closest("[data-r]"); if (r) { S.sv = +r.dataset.r; S.goto(1); } };
+  draw();
+}
+function hTurnos(root, S) {
+  S.sv ??= 0; let di = 0, pick = null;
+  const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(); d.setDate(d.getDate() + i); return d; });
+  const hours = []; for (let h = 9; h < 18; h++) { hours.push([h, 0]); hours.push([h, 30]); }
+  root.innerHTML = `<div class="d-turnos"><div><h4>Reservá tu turno</h4><div class="field"><label for="t-sv">Servicio</label><select id="t-sv">${H_SV.map((s, i) => `<option value="${i}"${i === S.sv ? " selected" : ""}>${esc(s[0])} (${s[2]} min)</option>`).join("")}</select></div><p class="demo-note" style="margin:14px 0 0">Los horarios libres salen de la agenda real del negocio. Los tachados ya están ocupados.</p><div id="t-ok"></div></div><div><div class="d-days" id="t-days"></div><div class="d-slots" id="t-slots"></div></div></div>`;
+  const taken = (d, hi) => (d * 7 + hi * 3) % 5 === 0 || (d + hi) % 7 === 3;
+  function render() {
+    root.querySelector("#t-days").innerHTML = days.map((d, i) => `<button type="button" class="d-dayb" data-d="${i}" aria-pressed="${i === di}">${DAYN[d.getDay()]}<b>${d.getDate()}</b>${MONN[d.getMonth()]}</button>`).join("");
+    const nw = new Date();
+    root.querySelector("#t-slots").innerHTML = hours.map(([h, m], hi) => { const past = di === 0 && (h < nw.getHours() || (h === nw.getHours() && m <= nw.getMinutes())); return `<button type="button" class="d-slot" data-h="${hi}" ${past || taken(di, hi) ? "disabled" : ""} aria-pressed="${pick === di + "-" + hi}">${pad2(h)}:${pad2(m)}</button>`; }).join("");
+    const ok = root.querySelector("#t-ok");
+    if (pick) { const [pd, ph] = pick.split("-").map(Number), d = days[pd], [h, m] = hours[ph], when = `${DAYN[d.getDay()]} ${d.getDate()} de ${MONN[d.getMonth()]}, ${pad2(h)}:${pad2(m)}`, s = H_SV[S.sv]; ok.innerHTML = `<div class="d-ok"><b>Turno reservado</b>${esc(s[0])} · ${when} · ${s[2]} min<q>Así le llega el aviso al negocio: «Hola, quiero reservar ${esc(s[0].toLowerCase())} para el ${when}.»</q></div>`; } else ok.innerHTML = "";
+  }
+  root.onclick = e => { const d = e.target.closest(".d-dayb"); if (d) { di = +d.dataset.d; pick = null; return render(); } const s = e.target.closest(".d-slot"); if (s && !s.disabled) { pick = di + "-" + s.dataset.h; render(); toast("Turno reservado (demostración)"); } };
+  root.onchange = e => { if (e.target.id === "t-sv") { S.sv = +e.target.value; render(); } };
+  render();
+}
+function hAgenda(root, S) {
+  const AG = S.ag ||= [{ d: 0, h: 10, n: "Laura P.", s: 0, st: "t" }, { d: 1, h: 11, n: "Marta R.", s: 6, st: "t" }, { d: 2, h: 16, n: "Sofía G.", s: 3, st: "p" }, { d: 3, h: 17, n: "Carla D.", s: 7, st: "t" }, { d: 4, h: 9, n: "Ana M.", s: 1, st: "t" }];
+  S.sales ||= [{ s: 3, m: "Tarjeta" }, { s: 0, m: "Efectivo" }, { s: 4, m: "Transferencia" }]; let sel = null, free = null;
+  const DN = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"], HR = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+  function draw() {
+    root.innerHTML = `<p class="d-hint">Tocá un horario libre para cargar un turno, o un turno para cobrarlo o cancelarlo. Las franjas rayadas esperan la seña.</p><div class="agenda-wrap"><div class="agenda"><div></div>${DN.map(d => `<div class="h">${d}</div>`).join("")}${HR.map(h => `<div class="h">${h}:00</div>` + DN.map((_, d) => { const t = AG.find(x => x.d === d && x.h === h); return t ? `<button type="button" class="cell ${t.st}" data-t="${AG.indexOf(t)}">${t.n}<br>${esc(H_SV[t.s][0].slice(0, 16))}</button>` : `<button type="button" class="cell" data-f="${d}-${h}" aria-label="Libre"></button>`; }).join("")).join("")}</div></div>
+    ${free ? `<div class="d-form2" style="margin-top:14px"><div class="field"><label for="a-n">Clienta</label><input id="a-n" placeholder="Nombre"></div><div class="field"><label for="a-s">Servicio</label><select id="a-s">${opts(H_SV.map(s => s[0]), 0)}</select></div><button type="button" class="d-btn pri" id="a-add">Agendar</button></div>` : ""}
+    ${sel !== null ? `<div class="d-ok"><b>${AG[sel].n} · ${esc(H_SV[AG[sel].s][0])}</b>${money(H_SV[AG[sel].s][3])}${AG[sel].st === "p" ? " · seña pendiente" : ""}<div class="d-form2" style="margin-top:10px">${AG[sel].st === "p" ? `<button type="button" class="d-btn" id="a-sena">Confirmar seña</button>` : ""}<button type="button" class="d-btn pri" id="a-cob">Cobrar</button><button type="button" class="d-btn" id="a-can">Cancelar turno</button></div></div>` : ""}`;
+  }
+  root.onclick = e => {
+    const t = e.target.closest("[data-t]"); if (t) { sel = +t.dataset.t; free = null; return draw(); }
+    const f = e.target.closest("[data-f]"); if (f) { free = f.dataset.f; sel = null; return draw(); }
+    if (e.target.id === "a-add") { const [d, h] = free.split("-").map(Number); AG.push({ d, h, n: root.querySelector("#a-n").value || "Clienta", s: +root.querySelector("#a-s").value, st: "t" }); free = null; toast("Turno agendado"); return draw(); }
+    if (e.target.id === "a-sena") { AG[sel].st = "t"; toast("Seña confirmada"); return draw(); }
+    if (e.target.id === "a-cob") { S.sales.push({ s: AG[sel].s, m: "Efectivo" }); AG.splice(sel, 1); sel = null; toast("Cobrado y pasado a la caja"); return draw(); }
+    if (e.target.id === "a-can") { AG.splice(sel, 1); sel = null; toast("Turno cancelado: el horario queda libre"); draw(); }
+  };
+  draw();
+}
+function hCaja(root, S) {
+  S.sales ||= [{ s: 3, m: "Tarjeta" }, { s: 0, m: "Efectivo" }, { s: 4, m: "Transferencia" }]; S.gastos ||= [{ c: "Insumos de cabina", a: 18500 }];
+  function draw() {
+    const ent = S.sales.reduce((s, v) => s + H_SV[v.s][3], 0), cos = S.sales.reduce((s, v) => s + H_SV[v.s][4], 0), sal = S.gastos.reduce((s, g) => s + g.a, 0), por = {}; S.sales.forEach(v => por[v.s] = (por[v.s] || 0) + H_SV[v.s][3] - H_SV[v.s][4]); const mx = Math.max(1, ...Object.values(por));
+    root.innerHTML = `<div class="d-kpis"><div class="d-kpi"><span>Entró hoy</span><b class="ok">${money(ent)}</b></div><div class="d-kpi"><span>Salió</span><b class="bad">${money(sal)}</b></div><div class="d-kpi"><span>Ganancia de los servicios</span><b class="warn">${money(ent - cos)}</b></div><div class="d-kpi"><span>Saldo del día</span><b>${money(ent - sal)}</b></div></div>
+    <div class="d-two"><div><h4>Cobrar un servicio</h4><div class="d-form2"><div class="field"><label for="c-s">Servicio</label><select id="c-s">${opts(H_SV.map(s => s[0]), 0)}</select></div><div class="field" style="max-width:150px"><label for="c-m">Medio</label><select id="c-m"><option>Efectivo</option><option>Tarjeta</option><option>Transferencia</option></select></div><button type="button" class="d-btn pri" id="c-go">Cobrar</button></div>
+      <h4 style="margin-top:18px">Registrar un gasto</h4><div class="d-form2"><div class="field"><label for="g-c">Concepto</label><input id="g-c" placeholder="Ej: toallas"></div><div class="field" style="max-width:130px"><label for="g-a">Monto</label><input id="g-a" type="number"></div><button type="button" class="d-btn" id="g-go">Sumar</button></div></div>
+    <div><h4>Ganancia por servicio</h4><div class="d-list">${Object.entries(por).map(([k, v]) => `<div class="d-item" style="display:block"><div style="display:flex;justify-content:space-between"><span>${esc(H_SV[k][0])}</span><b>${money(v)}</b></div><div class="d-prog" style="margin-top:6px"><i style="width:${v / mx * 100}%"></i></div></div>`).join("") || `<p class="d-empty">Todavía no cobraste nada hoy.</p>`}</div></div></div>`;
+  }
+  root.onclick = e => {
+    if (e.target.id === "c-go") { S.sales.push({ s: +root.querySelector("#c-s").value, m: root.querySelector("#c-m").value }); toast("Cobrado"); return draw(); }
+    if (e.target.id === "g-go") { const a = +root.querySelector("#g-a").value; if (!a) return toast("Poné un monto"); S.gastos.push({ c: root.querySelector("#g-c").value || "Gasto", a }); draw(); }
+  };
+  draw();
+}
+DEMOS.push({ id: "hesed", name: "Hesed Estética", mods: [["Carta de servicios", hServ], ["Reserva de turnos", hTurnos], ["Agenda", hAgenda], ["Caja y ganancias", hCaja]] });
+
+/* ===================== AVENIR ===================== */
+function aIper(root, S) {
+  const PEL = [["Trabajo en altura", "Caída a distinto nivel", "Arnés, línea de vida y capacitación específica"], ["Soldadura", "Proyección de partículas y quemaduras", "Extracción localizada, pantalla facial y EPP"], ["Ruido en planta", "Pérdida auditiva", "Protección auditiva y rotación de tareas"], ["Tablero eléctrico", "Contacto eléctrico", "Bloqueo y etiquetado, personal habilitado"], ["Manejo de cargas", "Lesión por sobreesfuerzo", "Ayudas mecánicas y pausas activas"]];
+  const I = S.i ||= { p: 0, pr: 3, sv: 4, hist: [] }, COL = ["#7fbf8a", "#b6e2b9", "#f4b942", "#ff8a80"];
+  const lvl = v => v >= 15 ? 3 : v >= 9 ? 2 : v >= 4 ? 1 : 0, NAME = ["Bajo", "Medio", "Alto", "Crítico"];
+  function draw() {
+    const v = I.pr * I.sv, L = lvl(v), pl = PEL[I.p];
+    root.innerHTML = `<div class="d-two"><div><h4>Identificá el peligro</h4><div class="field"><label for="i-p">Peligro</label><select id="i-p">${opts(PEL.map(p => p[0]), I.p)}</select></div>
+    <div class="field" style="margin-top:10px"><label for="i-pr">Probabilidad: <b>${I.pr}</b></label><input id="i-pr" type="range" min="1" max="5" value="${I.pr}"></div><div class="field" style="margin-top:10px"><label for="i-sv">Severidad: <b>${I.sv}</b></label><input id="i-sv" type="range" min="1" max="5" value="${I.sv}"></div>
+    <div style="margin-top:14px">Nivel de riesgo: <span class="risk" style="background:${COL[L]}">${NAME[L]} (${v})</span></div><p class="d-hint" style="margin-top:10px"><b>Riesgo:</b> ${pl[1]}.<br><b>Medida sugerida:</b> ${pl[2]}.</p><button type="button" class="d-btn pri" id="i-save">Guardar en el historial</button></div>
+    <div><h4>Matriz probabilidad por severidad</h4><div class="mx"><div></div>${[1, 2, 3, 4, 5].map(s => `<div>S${s}</div>`).join("")}${[5, 4, 3, 2, 1].map(p => `<div>P${p}</div>` + [1, 2, 3, 4, 5].map(s => `<div class="c${p === I.pr && s === I.sv ? " on" : ""}" style="background:${COL[lvl(p * s)]}">${p * s}</div>`).join("")).join("")}</div>
+    <h4 style="margin-top:18px">Historial</h4><div class="d-list">${I.hist.map(h => `<div class="d-item"><div>${esc(h.n)}<small>${h.f}</small></div><span class="risk" style="background:${COL[h.l]};font-size:.8rem">${NAME[h.l]}</span></div>`).join("") || `<p class="d-empty">Todavía no guardaste ningún relevamiento.</p>`}</div></div></div>`;
+  }
+  root.oninput = e => { if (e.target.id === "i-pr") I.pr = +e.target.value; else if (e.target.id === "i-sv") I.sv = +e.target.value; else return; draw(); root.querySelector("#" + e.target.id).focus(); };
+  root.onchange = e => { if (e.target.id === "i-p") { I.p = +e.target.value; draw(); } };
+  root.onclick = e => { if (e.target.id === "i-save") { I.hist.unshift({ n: PEL[I.p][0], l: lvl(I.pr * I.sv), f: hhmm(new Date()) }); toast("Relevamiento guardado"); draw(); } };
+  draw();
+}
+function aAts(root, S) {
+  const T = [["Trabajo en altura", [["Revisar el arnés y la línea de vida", "Caída del trabajador"], ["Señalizar y delimitar la zona", "Caída de objetos"], ["Verificar el estado de la escalera", "Caída a distinto nivel"], ["Ejecutar con un compañero de apoyo", "Falta de asistencia"]]], ["Espacio confinado", [["Medir la atmósfera antes de entrar", "Gases tóxicos"], ["Ventilar el espacio", "Falta de oxígeno"], ["Dejar un vigía en la entrada", "Imposibilidad de rescate"], ["Permiso de ingreso firmado", "Ingreso no autorizado"]]], ["Soldadura", [["Retirar materiales inflamables", "Incendio"], ["Colocar extinguidor a mano", "Incendio"], ["Usar pantalla facial y guantes", "Quemaduras"], ["Activar la extracción localizada", "Humos metálicos"]]]];
+  const A = S.a ||= { t: 0, done: {} };
+  function draw() {
+    const steps = T[A.t][1], k = A.t, ok = steps.filter((_, i) => A.done[k + "-" + i]).length, all = ok === steps.length;
+    root.innerHTML = `<div class="d-two"><div><h4>Análisis de trabajo seguro</h4><div class="field"><label for="a-t">Tarea</label><select id="a-t">${opts(T.map(t => t[0]), A.t)}</select></div><div class="d-prog" style="margin:14px 0 6px"><i style="width:${ok / steps.length * 100}%"></i></div><p class="d-hint">${ok} de ${steps.length} controles verificados</p>
+    <button type="button" class="btn primary" id="a-ok"${all ? "" : " disabled"}>${all ? "Aprobar y firmar el ATS" : "Verificá todos los controles"}</button></div>
+    <div class="d-list">${steps.map((s, i) => `<label class="d-item" style="cursor:pointer"><span style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" data-s="${k}-${i}" ${A.done[k + "-" + i] ? "checked" : ""} style="width:18px;height:18px;margin-top:3px"><span>${s[0]}<small>Riesgo: ${s[1]}</small></span></span></label>`).join("")}</div></div>`;
+  }
+  root.onchange = e => { if (e.target.id === "a-t") { A.t = +e.target.value; return draw(); } if (e.target.dataset.s) { A.done[e.target.dataset.s] = e.target.checked; draw(); } };
+  root.onclick = e => { if (e.target.id === "a-ok") toast("ATS aprobado y firmado"); };
+  draw();
+}
+function aMapa(root, S) {
+  const EMP = [["Metalúrgica Sierras", 50, 46], ["Alimentos del Valle", 16, 28], ["Construcciones Altos", 34, 84], ["Transporte Cuyo", 80, 14], ["Plásticos del Centro", 82, 66]];
+  const TEC = S.tec ||= [["Martín F.", 38, 62, "Disponible", null], ["Lucía B.", 28, 38, "Disponible", null], ["Diego C.", 12, 70, "Disponible", null], ["Carolina L.", 64, 50, "Disponible", null], ["Nicolás P.", 62, 24, "Disponible", null]];
+  S.e ??= 0; S.sel ??= null;
+  const dist = (a, b) => Math.hypot(a[1] - b[1], a[2] - b[2]);
+  function draw() {
+    const e = EMP[S.e], near = TEC.filter(t => t[3] === "Disponible").map(t => [t, dist(t, e)]).sort((a, b) => a[1] - b[1]);
+    root.innerHTML = `<div class="d-two"><div class="map">${EMP.map((m, i) => `<button type="button" class="pt emp${i === S.e ? " sel" : ""}" style="left:${m[1]}%;top:${m[2]}%" data-e="${i}" aria-label="${m[0]}">${m[0]}</button>`).join("")}${TEC.map((t, i) => `<div class="pt" style="left:${t[1]}%;top:${t[2]}%">${t[0]}</div>`).join("")}</div>
+    <div><h4>${esc(e[0])}</h4><p class="d-hint">Tocá una empresa en el mapa. El sistema te muestra quién está más cerca y le asigna la tarea.</p><div class="d-list">${near.slice(0, 3).map(([t, d], i) => `<div class="d-item"><div>${t[0]}<small>A ${Math.round(d * 1.4)} km · ${t[3]}</small></div>${i === 0 ? `<button type="button" class="d-btn pri" data-a="${TEC.indexOf(t)}">Asignar tarea</button>` : ""}</div>`).join("") || `<p class="d-empty">No hay técnicos disponibles.</p>`}</div>
+    <h4 style="margin-top:16px">En camino</h4><div class="d-list">${TEC.filter(t => t[3] !== "Disponible").map(t => `<div class="d-item"><div>${t[0]}<small>${t[3]}</small></div><button type="button" class="d-btn" data-l="${TEC.indexOf(t)}">Marcar llegada</button></div>`).join("") || `<p class="d-empty">Nadie en camino.</p>`}</div></div></div>`;
+  }
+  root.onclick = e => {
+    const m = e.target.closest("[data-e]"); if (m) { S.e = +m.dataset.e; return draw(); }
+    const a = e.target.closest("[data-a]"); if (a) { const t = TEC[+a.dataset.a], em = EMP[S.e]; t[3] = "En camino a " + em[0]; t[4] = [t[1], t[2]]; t[1] = em[1] - 7; t[2] = em[2] + 9; toast(t[0] + " va hacia " + em[0]); return draw(); }
+    const l = e.target.closest("[data-l]"); if (l) { const t = TEC[+l.dataset.l]; t[3] = "Disponible"; toast(t[0] + " llegó y registró el ingreso"); draw(); }
+  };
+  draw();
+}
+function aRoles(root, S) {
+  const MODS = ["Usuarios", "Empresas", "Relevamientos", "IPER y ATS", "Estadísticas", "Insumos", "Documentos"], ROLES = ["Administrador", "Gerente", "Técnico"];
+  const P = S.p ||= { Administrador: MODS.map(() => true), Gerente: [true, true, true, true, true, false, true], "Técnico": [false, false, true, true, false, true, true] }; S.r ??= 2;
+  function draw() {
+    const r = ROLES[S.r];
+    root.innerHTML = `<div class="d-two"><div><h4>Permisos por rol</h4><div style="overflow-x:auto"><table class="d-tbl"><tr><th>Módulo</th>${ROLES.map(x => `<th>${x}</th>`).join("")}</tr>${MODS.map((m, i) => `<tr><td>${m}</td>${ROLES.map(x => `<td><button type="button" class="sw" data-r="${x}" data-i="${i}" aria-pressed="${P[x][i]}" aria-label="${x} en ${m}"></button></td>`).join("")}</tr>`).join("")}</table></div></div>
+    <div><h4>Mirá cómo lo ve cada persona</h4><div class="d-pay" style="margin-bottom:12px">${ROLES.map((x, i) => `<button type="button" class="d-pill" data-v="${i}" aria-pressed="${i === S.r}">${x}</button>`).join("")}</div><div class="d-list">${MODS.filter((_, i) => P[r][i]).map(m => `<div class="d-item"><span>${m}</span><span class="d-chip g">Visible</span></div>`).join("") || `<p class="d-empty">Este rol no ve ningún módulo.</p>`}</div><p class="d-hint" style="margin-top:12px">Cada persona ve solo lo que le corresponde. También se pueden dar permisos a una persona puntual, sin cambiar su rol.</p></div></div>`;
+  }
+  root.onclick = e => { const s = e.target.closest(".sw"); if (s) { P[s.dataset.r][+s.dataset.i] = !P[s.dataset.r][+s.dataset.i]; return draw(); } const v = e.target.closest("[data-v]"); if (v) { S.r = +v.dataset.v; draw(); } };
+  draw();
+}
+DEMOS.push({ id: "avenir", name: "Avenir", mods: [["Relevamiento de riesgos", aIper], ["Trabajo seguro (ATS)", aAts], ["Equipo en el mapa", aMapa], ["Roles y permisos", aRoles]] });
+
+/* ---------- actualización simulada ---------- */
+(() => {
+  const btn = $("#upd-btn"), msg = $("#upd-msg"), bar = $("#upd-bar"), notes = $("#upd-notes"), ver = $("#upd-v"); let state = 0, ver2 = "1.3.0";
+  btn.addEventListener("click", () => {
+    if (state === 0) { btn.disabled = true; msg.textContent = "Buscando una versión nueva…"; setTimeout(() => { state = 1; btn.disabled = false; msg.innerHTML = "Hay una versión nueva: <b>" + ver2 + "</b>. Novedades:"; notes.hidden = false; btn.textContent = "Instalar ahora"; }, 900); }
+    else if (state === 1) { state = 2; btn.disabled = true; bar.hidden = false; notes.hidden = true; const steps = ["Descargando…", "Verificando tu licencia…", "Instalando…", "Reabriendo el sistema…"]; let p = 0; const it = setInterval(() => { p += 2; bar.firstElementChild.style.width = Math.min(100, p) + "%"; msg.textContent = steps[Math.min(3, Math.floor(p / 26))]; if (p >= 100) { clearInterval(it); state = 3; ver.textContent = ver2; msg.textContent = "Listo. Tus datos y tu licencia siguen igual."; btn.textContent = "Buscar actualización"; btn.disabled = false; bar.hidden = true; } }, 55); }
+    else { msg.textContent = "Estás al día: es la última versión."; }
+  });
+})();
+
+/* ---------- arranque del Probalo ---------- */
+function showDemo(si, mi) {
+  TIMERS.forEach(clearInterval); TIMERS = []; curSys = si; curMod = mi;
+  const D = DEMOS[si], stage = $("#demo-stage");
+  $$("#demo-sys [role=tab]").forEach((t, i) => t.setAttribute("aria-selected", i === si));
+  $("#demo-mods").innerHTML = D.mods.map((m, i) => `<button type="button" role="tab" aria-selected="${i === mi}" data-m="${i}">${esc(m[0])}</button>`).join("");
+  const ctx = STATE[D.id] ||= {}; ctx.goto = m => showDemo(si, m);
+  stage.onclick = stage.oninput = stage.onchange = null; stage.innerHTML = "";
+  try { D.mods[mi][1](stage, ctx); } catch (err) { console.error(err); stage.innerHTML = `<p class="d-empty">No se pudo cargar esta demostración.</p>`; }
+}
+$("#demo-sys").innerHTML = DEMOS.map(d => `<button type="button" role="tab" aria-selected="false" data-sys="${d.id}">${esc(d.name)}</button>`).join("");
+$("#demo-sys").addEventListener("click", e => { const b = e.target.closest("[data-sys]"); if (b) showDemo(DEMOS.findIndex(d => d.id === b.dataset.sys), 0); });
+$("#demo-mods").addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (b) showDemo(curSys, +b.dataset.m); });
+showDemo(0, 0);
+
+/* Barra de progreso y navegación activa */
+(() => {
+  const bar = $("#progress"), links = $$(".nav ul a"), targets = links.map(a => $(a.getAttribute("href")));
+  const upd = () => {
+    const h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+    let cur = -1; targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < innerHeight * .4) cur = i; });
+    links.forEach((a, i) => a.classList.toggle("act", i === cur));
+  };
+  addEventListener("scroll", upd, { passive: true }); upd();
+})();
+
+/* Botones magnéticos */
+if (matchMedia("(pointer: fine)").matches && !reduce) $$(".btn.primary").forEach(b => {
+  b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px,${(e.clientY - r.top - r.height / 2) * .28}px)`; });
+  b.addEventListener("pointerleave", () => { b.style.transform = ""; });
+});
+
+window.addEventListener("load", () => ScrollTrigger.refresh());
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
+
+/* ---------- Hero 3D: los sistemas orbitando un núcleo que los conecta ---------- */
+(function () {
+  const canvas = $("#gl"), hero = $("#top");
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); }
+  catch (e) { canvas.style.display = "none"; return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, .1, 100);
+  const group = new THREE.Group(); scene.add(group);
+  const SOL = 0xf4b942, BAMBOO = 0x7fbf8a;
+
+  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(1.25, 1), new THREE.MeshBasicMaterial({ color: BAMBOO, wireframe: true, transparent: true, opacity: .55 }));
+  const core2 = new THREE.Mesh(new THREE.IcosahedronGeometry(.62, 0), new THREE.MeshBasicMaterial({ color: SOL, wireframe: true, transparent: true, opacity: .9 }));
+  const halo = (() => { const c = document.createElement("canvas"); c.width = c.height = 128; const g = c.getContext("2d"); const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64); gr.addColorStop(0, "rgba(244,185,66,.85)"); gr.addColorStop(.35, "rgba(244,185,66,.22)"); gr.addColorStop(1, "rgba(244,185,66,0)"); g.fillStyle = gr; g.fillRect(0, 0, 128, 128); return new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), blending: THREE.AdditiveBlending, depthWrite: false, transparent: true })); })();
+  halo.scale.setScalar(4.2);
+  group.add(core, core2, halo);
+
+  const sp = new Float32Array(1100 * 3);
+  for (let i = 0; i < 1100; i++) { const r = 9 + Math.random() * 16, a = Math.random() * 6.283, b = Math.acos(2 * Math.random() - 1); sp.set([r * Math.sin(b) * Math.cos(a), r * Math.sin(b) * Math.sin(a), r * Math.cos(b)], i * 3); }
+  const sg = new THREE.BufferGeometry(); sg.setAttribute("position", new THREE.BufferAttribute(sp, 3));
+  const stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: 0xd3e6d8, size: .05, transparent: true, opacity: .55, depthWrite: false }));
+  scene.add(stars);
+
+  function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+  function panelTex(s, k) {
+    const c = document.createElement("canvas"); c.width = 640; c.height = 400; const g = c.getContext("2d");
+    rr(g, 4, 4, 632, 392, 28); g.fillStyle = "#121b17"; g.fill(); g.lineWidth = 2; g.strokeStyle = "rgba(241,238,229,.2)"; g.stroke();
+    g.fillStyle = "#19241f"; rr(g, 4, 4, 632, 52, 28); g.fill(); g.fillRect(4, 30, 632, 26);
+    [0, 1, 2].forEach(i => { g.beginPath(); g.arc(34 + i * 24, 30, 6, 0, 6.283); g.fillStyle = "#0c1311"; g.fill(); });
+    g.fillStyle = "#7fbf8a"; g.fillRect(40, 96, 8, 8);
+    g.fillStyle = "#f1eee5"; g.font = '700 54px "Bricolage Grotesque", Arial, sans-serif'; g.textBaseline = "alphabetic";
+    const words = s.name.split(" "); let line = "", y = 168;
+    words.forEach(w => { const t = line ? line + " " + w : w; if (g.measureText(t).width > 540 && line) { g.fillText(line, 40, y); y += 58; line = w; } else line = t; });
+    g.fillText(line, 40, y);
+    g.fillStyle = "#9db0a6"; g.font = '400 22px "Instrument Sans", Arial, sans-serif';
+    g.fillText(s.sub, 40, 352);
+    for (let i = 0; i < 6; i++) { g.fillStyle = i % 2 ? "rgba(127,191,138,.4)" : "rgba(244,185,66,.5)"; const h = 20 + ((i * 37 + k * 23) % 70); g.fillRect(380 + i * 38, 330 - h, 24, h); }
+    const t = new THREE.CanvasTexture(c); t.anisotropy = 4; return t;
+  }
+  const RUBROS = [{ name: "Comercios y kioscos", sub: "Sistema a medida" }, { name: "Gastronomía", sub: "Sistema a medida" }, { name: "Tiendas online", sub: "Sistema a medida" }, { name: "Estética y bienestar", sub: "Sistema a medida" }, { name: "Servicios y consultoras", sub: "Sistema a medida" }, { name: "Tu negocio", sub: "Lo diseñamos con vos" }];
+  const panels = [], N = RUBROS.length, R = 4.7;
+  RUBROS.forEach((s, i) => {
+    const a = i / N * Math.PI * 2, y = Math.sin(i * 1.9) * 1.1;
+    const geo = new THREE.PlaneGeometry(2.7, 1.69);
+    const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: panelTex(s, i), transparent: true, opacity: .96 }));
+    m.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({ color: BAMBOO, transparent: true, opacity: .6 })));
+    m.position.set(Math.cos(a) * R, y, Math.sin(a) * R);
+    m.scale.setScalar(.001);
+    group.add(m); panels.push(m);
+    group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), m.position.clone()]), new THREE.LineBasicMaterial({ color: BAMBOO, transparent: true, opacity: .3 })));
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => panels.forEach((p, i) => { p.material.map.dispose(); p.material.map = panelTex(RUBROS[i], i); p.material.needsUpdate = true; }));
+
+  const PK = 3, pp = new Float32Array(N * PK * 3);
+  const pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pp, 3));
+  group.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: SOL, size: .16, transparent: true, opacity: .95, depthWrite: false, blending: THREE.AdditiveBlending })));
+
+  panels.forEach((p, i) => gsap.to(p.scale, { x: 1, y: 1, z: 1, duration: 1.4, delay: .5 + i * .12, ease: "back.out(1.4)" }));
+
+  let aspect = 1, baseZ = 10;
+  function resize() {
+    const w = hero.clientWidth, h = hero.clientHeight; renderer.setSize(w, h, false);
+    aspect = w / h; camera.aspect = aspect; camera.updateProjectionMatrix();
+    baseZ = aspect < .9 ? 15.5 : aspect < 1.4 ? 12.5 : 10.5;
+    const halfW = Math.tan(22.5 * Math.PI / 180) * baseZ * aspect, wide = aspect > 1.25;
+    group.scale.setScalar(wide ? Math.min(1, halfW * .6 / 6.2) : Math.min(1, halfW * 1.5 / 6.2));
+    group.position.x = wide ? halfW * .5 : 0;
+    group.position.y = wide ? 0 : 4.3;
+  }
+  new ResizeObserver(resize).observe(hero); resize();
+
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  addEventListener("pointermove", e => { mouse.tx = e.clientX / innerWidth - .5; mouse.ty = e.clientY / innerHeight - .5; });
+  let visible = true; new IntersectionObserver(([e]) => visible = e.isIntersecting).observe(hero);
+  const q = new THREE.Quaternion(), clock = new THREE.Clock(); let time = 0;
+  function frame() {
+    requestAnimationFrame(frame);
+    if (!visible) return;
+    const dt = Math.min(clock.getDelta(), .05); time += reduce ? 0 : dt;
+    mouse.x += (mouse.tx - mouse.x) * .05; mouse.y += (mouse.ty - mouse.y) * .05;
+    const p = Math.min(1, scrollY / (hero.clientHeight * .9));
+    camera.position.set(0, 0, baseZ + p * 6); camera.lookAt(group.position.x * .3, group.position.y * .3, 0);
+    group.rotation.y = time * .16 + mouse.x * .6 + p * 1.2;
+    group.rotation.x = mouse.y * .3;
+    core.rotation.y = time * .4; core.rotation.x = time * .2; core2.rotation.y = -time * .8; core2.rotation.z = time * .5;
+    halo.material.opacity = .75 + Math.sin(time * 2) * .15;
+    stars.rotation.y = time * .01 + p * .2;
+    canvas.style.opacity = 1 - p * .85;
+    group.updateMatrixWorld(); group.getWorldQuaternion(q).invert();
+    panels.forEach(m => m.quaternion.copy(q).multiply(camera.quaternion));
+    let k = 0;
+    for (let i = 0; i < N; i++) for (let j = 0; j < PK; j++) {
+      let t = (time * .22 + j / PK + i * .17) % 1; if ((i + j) % 2) t = 1 - t;
+      const P = panels[i].position; pp[k++] = P.x * t; pp[k++] = P.y * t; pp[k++] = P.z * t;
+    }
+    pg.attributes.position.needsUpdate = true;
+    renderer.render(scene, camera);
+  }
+  frame();
+})();
+</script>
+
+</html>
